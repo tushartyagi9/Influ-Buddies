@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Dance",
+        "image": "https://images.theconversation.com/files/430015/original/file-20211103-27-1gojlp9.jpg?ixlib=rb-4.1.0&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip",
+        "link": "http://127.0.0.1:5500/categories-dance.html"
+    },
+    {
+        "name": "Travel",
+        "image": "https://xnd-prod-static.s3.ap-south-1.amazonaws.com/tnd/digest_media/141_20201013185512_Consumer-Survey-Finds-70-Percent-of-Travelers-Plan-to-Holiday-in-2021.jpg",
+        "link": "http://127.0.0.1:5500/categories-travel.html"
+    },
+    {
+        "name": "Fashion",
+        "image": "https://i0.wp.com/fashion2apparel.com/wp-content/uploads/2023/02/fashion-trends.jpg?resize=600%2C400&quality=100&ssl=1",
+        "link": "http://127.0.0.1:5500/categories-fashion.html"
+    },
+    {
+        "name": "Beauty",
+        "image": "https://orane.com/wp-content/uploads/2020/04/99.-Best-Beauty-Academy-scaled-1.jpg",
+        "link": "http://127.0.0.1:5500/categories-beauty.html"
+    }
+]

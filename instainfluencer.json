@@ -1,0 +1,203 @@
+{
+  "influencers": [
+      {
+          "name": "Mehndi Jashnani","location": "Rajasthan",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 212913.png",
+          "category":"beauty",
+          "socialMedia":"https://www.instagram.com/mehndi_jashnani/?hl=en"
+        },
+        {
+          "name": "Alkananda Bodapaty",
+          "location": "Punjab",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 214148.png",
+          "socialMedia":"https://www.instagram.com/alkananda_bodapaty/",
+          "category":"dance"
+        },
+        {
+          "name": "Mrunal Thakur",
+          "location": "Maharashtra",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-13 011517.png",
+          "socialMedia":"https://www.instagram.com/mrunalthakur/",
+          "category":"travel"
+        },
+        {
+          "name": "Yashi Tank",
+          "location": "Rajasthan",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-13 025254.png",
+          "socialMedia":"https://www.instagram.com/yashitank05/",
+          "category":"dance"
+        },
+        {
+          "name": "Shakti Mohan",
+          "location": "Delhi",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 162621.png",
+          "socialMedia":"https://www.instagram.com/mohanshakti/",
+          "category":"dance"
+        },
+        {
+          "name": "Raghav Juyal",
+          "location": "Uttrakhand",
+          "gender":"male",
+          "image": "images/Screenshot 2024-10-12 163505.png",
+          "socialMedia":"https://www.instagram.com/raghavjuyal/",
+          "category":"dance"
+        },
+        {
+          "name": "Vartika Jha",
+          "location": "UttarPradesh",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 183517.png",
+          "socialMedia":"https://www.instagram.com/jhavartika/",
+          "category":"beauty"
+        },
+        {
+          "name": "Melvin Louis",
+          "location": "Maharashtra",
+          "gender":"male",
+          "image": "images/Screenshot 2024-10-12 184815.png",
+          "socialMedia":"https://www.instagram.com/melvinlouis/",
+          "category":"beauty"
+        },
+        {
+          "name": "Paridhi Sharma",
+          "location": "UttarPradesh",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 185523.png",
+          "socialMedia":"https://www.instagram.com/paridhiofficial/",
+          "category":"dance"
+        },
+        {
+          "name": "Shobana ChandraKumar",
+          "location": "Punjab",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 190502.png",
+          "socialMedia":"https://www.instagram.com/tanyabhushan/",
+          "category":"beauty"
+        },
+        {
+          "name": "Tanya Bhushan",
+          "location": "Delhi",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 191508.png",
+          "socialMedia":"https://www.instagram.com/tanyabhushan/",
+          "category":"beauty"
+        },
+        {
+          "name": "Mohit Solanki",
+          "location": "Rajasthan",
+          "gender":"male",
+          "image": "images/Screenshot 2024-10-12 195954.png",
+          "socialMedia":"https://www.instagram.com/mohitsolanki11/",
+          "category":"dance"
+        },
+        {
+          "name": "Disha Madan",
+          "location": "Uttrakhand",
+          "gender":"female",
+          "image": "images/Screenshot 2024-10-12 202206.png",
+          "socialMedia":"https://www.instagram.com/disha.madan/",
+          "category":"dance"
+        },
+        {
+          "name": " Sanket Mehta",
+          "location": "Maharashtra",
+          "gender":"male",
+          "image": "https://yt3.googleusercontent.com/ytc/AIdro_kDci6tjv0AtqOH-A7p-imYYb_4-6RhtwsM-VNTp_ObHxuR=s900-c-k-c0x00ffffff-no-rj",
+          "socialMedia":"https://www.instagram.com/sankett25/",
+          "category":"beauty"
+        },
+        {
+          "name": "Tehraan Bakshi",
+          "location": "Maharashtra",
+          "gender":"male",
+          "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qtcDm_ooQyi-iNWa8yKsS5jRdF12ntYvhg&s",
+          "socialMedia":"https://www.instagram.com/tehraanbakshi/",
+          "category":"fashion"
+        },
+        {
+          "name": "Meghna Kaur",
+          "location": "UttarPradesh",
+          "gender":"female",
+          "image": "https://i.pinimg.com/originals/21/76/3d/21763d6a60af7ded698af5986445e46b.jpg",
+          "socialMedia":"https://www.instagram.com/shetroublemaker/",
+          "category":"fashion"
+        },
+        {
+          "name": "Apoorva Mukhija",
+          "location": "Uttrakhand",
+          "gender":"female",
+          "image": "https://s.talentrack.in/uploads/acc_img/431/664/optim_431664_669abebf10d64.jpg",
+          "socialMedia":"https://www.instagram.com/the_rebel_kid_forever/",
+          "category":"fashion"
+        },
+        {
+          "name": "Aayushi Verma",
+          "location": "Delhi",
+          "gender":"female",
+          "image": "https://i.pinimg.com/736x/d4/27/91/d427912943061cfbf74f41bb9a27a5b8.jpg",
+          "socialMedia":"https://www.instagram.com/aayushiivermaa/",
+          "category":"dance"
+        },
+        {
+          "name": "Karron S Dhinggra",
+          "location": "Maharashtra",
+          "gender":"male",
+          "image": "https://starsunfolded.com/wp-content/uploads/2022/01/Karron-S-Dhinggra-Image.jpg",
+          "socialMedia":"https://www.instagram.com/theformaledit/",
+          "category":"fashion"
+        },
+        {
+          "name": "Komal Pandey",
+          "location": "Maharashtra",
+          "gender":"female",
+          "image": "https://cdn.shopify.com/s/files/1/1488/1130/files/The_shoulder-length_ombre_style_ef0cda3c-0f62-4400-a498-3e17d6251fcb.png?v=1658398194",
+          "socialMedia":"https://www.instagram.com/komalpandeyofficial/",
+          "category":"fashion"
+        },
+        {
+          "name": "Abhinav Chandel",
+          "location": "Uttrakhand",
+          "gender":"male",
+          "image": "https://pbs.twimg.com/media/C3KybZQWAAEAtfK.jpg",
+           "socialMedia": "https://www.instagram.com/abhiandnow/",
+          "category":"travel"
+        },
+        {
+          "name": " Aakash Malhotra",
+          "location": "Rajasthan",
+          "gender":"male",
+          "image": "https://cms-article.forbesindia.com/media/digital-stars/Aakash_Malhotra_H.webp",
+           "socialMedia": "https://www.instagram.com/wanderwithsky/",
+          "category":"travel"
+        },
+        {
+          "name": "Ankita Kumar",
+          "location": "Delhi",
+          "gender":"female",
+          "image": "https://wp-socialnation-assets.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/09/27185007/DSC0298-01-1024x683.jpg",
+           "socialMedia": "https://www.instagram.com/monkey.inc/",
+          "category":"travel"
+        },
+        {
+          "name": "Raunaq",
+          "location": "UttarPradesh",
+          "gender":"male",
+          "image": "https://media.licdn.com/dms/image/v2/D5622AQEoXXwmCH7nQg/feedshare-shrink_800/feedshare-shrink_800/0/1711546001754?e=2147483647&v=beta&t=Fq6uvZWAjmbtyyF3URhgtqnk06gCDvXf5sveCaXUa3M",
+           "socialMedia": "https://www.instagram.com/monkeyxmagic/",
+          "category":"travel"
+        },
+        {
+          "name": "Navankur Chaudhary",
+          "location": "Haryana",
+          "gender":"male",
+          "image": "https://yt3.googleusercontent.com/ytc/AIdro_mHLlpY6DuyrE1_aF5EWHYOj2YHebD3IPrHUQ_DAZgNig=s900-c-k-c0x00ffffff-no-rj",
+           "socialMedia": "https://www.instagram.com/navankurchaudhary/",
+          "category":"travel"
+        }
+  ]  
+}

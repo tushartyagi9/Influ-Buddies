@@ -1,0 +1,88 @@
+{
+  "influencers": [
+    {
+      "name": "Mehndi Jashnani","location": "Rajasthan",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 212913.png",
+      "socialMedia":"https://www.instagram.com/mehndi_jashnani/?hl=en"
+    },
+    {
+      "name": "Alkananda Bodapaty",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 214148.png",
+      "socialMedia":"https://www.instagram.com/alkananda_bodapaty/"
+    },
+    
+    {
+      "name": "Somya Gupta",
+      "location": "Rajasthan",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 030852.png",
+      "socialMedia": "https://www.youtube.com/@Thesassthing_"
+    },
+    {
+      "name": "Juhi Godambe",
+      "location": "Haryana",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 215457.png",
+      "socialMedia": "https://www.youtube.com/@JuhiGodamb"
+    },
+    {
+      "name": "Mrunal Thakur",
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 011517.png",
+      "socialMedia":"https://www.instagram.com/mrunalthakur/"
+      },
+     {
+      "name": "Kritika Khuran",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 012250.png",
+      "socialMedia": "https://www.youtube.com/@kritikathatbohogirl"
+    },
+    {
+      "name": "Malvika Sitlani", 
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 013233.png",
+      "socialMedia": "https://www.youtube.com/@ThatGirlInVogue"
+    },
+    {
+      "name": "Mrunal Panchal",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 013951.png",
+      "socialMedia": "https://www.youtube.com/@GujjuUnicorn"
+    },
+    {
+      "name": "Amulya Rattan",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 015549.png",
+      "socialMedia": "https://www.youtube.com/@AmulyaRattan"
+    },
+    {
+      "name": "Swati Verma Nanda",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 024351.png",
+      "socialMedia": "https://www.youtube.com/@SwatiVermaMakeovers"
+    },
+    {
+      "name": "Yashi Tank",
+      "location": "Rajasthan",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 025254.png",
+      "socialMedia":"https://www.instagram.com/yashitank05/"
+    },
+    {
+      "name": "Kiwi Tandon", 
+      "location": "Uttrakhand",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 030852.png",
+      "socialMedia":"https://www.instagram.com/kiwitandon/"
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Buddies</title>
+    <link rel="stylesheet" href="/css/BrandBuddies.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+<header class="header">
+        <div class="logo">Brand Buddies</div>
+       
+            <div class="afterlogo">
+                <p class="home"><a href="/">Home</a></p> 
+                <p class="about"><a href="/list">List Yourself</a></p>
+                <p class="about"><a href="about.html">About Us</a></p> 
+                 <img src="/WhatsApp Image 2024-10-18 at 14.45.33.jpeg" alt="user" class="userdetail" id="userImage">       
+                 <div class="user-dropdown" id="userDropdown">
+                  <div class="user-details">
+                      <div class="user-top"><img src="/WhatsApp Image 2024-10-18 at 14.45.33.jpeg" alt="User Profile" class="dropdown-profile-pic">
+                        <h3 class="username">Prateek Yadav</h3></div>
+                      <p class="user-email">Email: prateekyadav@gmail.com</p>
+                      <!-- <p class="user-phone">Mobile no.: +91 9462151708</p> -->
+                      <p class="user-bio">Bio:</p>
+                      
+                      <div class="social-links">
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                      </div>
+                      <a href="http://127.0.0.1:5500/signup.html"><button class="btn">Logout</button></a>
+                  </div>
+              </div>
+            </div>
+          
+</header>
+
+<section class="hero">
+        <h1 class="gradient-text">Influencer Marketing Made Easy</h1>
+        <p class="subheading">Find and hire top Instagram, Facebook and YouTube influencers <br> to create unique content for your brand</p>
+</section>
+
+<section class="search-fields">
+        <div class="search-field">
+            <select onchange="location = this.value;">
+                <option value="">Choose a category</option>
+                <option value="http://127.0.0.1:5500/categories-dance.html">Dance</option>
+                <option value="http://127.0.0.1:5500/categories-fashion.html">Fashion</option>
+                <option value="http://127.0.0.1:5500/categories-travel.html">Travel</option>
+                <option value="http://127.0.0.1:5500/categories-beauty.html">Beauty</option>
+            </select>
+        </div>
+
+        <div class="search-field-2">
+            <input type="text" placeholder="Platform" class="search-input">
+            <button class="search-btn" id="search-button">🔍
+            </button>
+        </div>
+</section>
+
+<section class="featured">
+    <h2>Featured</h2>
+    <p class="h2">Hire top influencers across all platforms</p> 
+    <div class="influencer-container">  
+        <!-- Json-->
+    </div>
+</section>
+
+<section class="instagram">
+    <h2>Instagram</h2>
+    <p class="h2">Hire instagram influencers</p>
+    <div class="influencer-container" id="influencer-container2">  
+        <!-- Json -->
+    </div>
+</section>
+
+<section class="categories">
+    <div class="container">
+        <h2>Categories</h2>
+        <div class="grid-container" id="category-grid">
+           <!-- Json--> 
+        </div>
+    </div>
+</section>
+
+<section class="bbworks">
+    <div class="container">
+        <h2>How Brand Buddies Works</h2>
+        <p class="h2">Everything you need to run your influencer campaigns, and more.</p>
+        
+        <div class="steps">
+
+            <div class="step">
+                <img src="/DALL·E 2024-11-01 17.24.37 - A clean and modern image showing a friendly user interface for an influencer search tool, designed for finding vetted Instagram and YouTube influencer.webp" alt="Search Influencers">
+                <div class="step-text">
+                    <h3>1</h3>
+                    <h4>Search Influencers</h4>
+                    <p>Search through thousands of vetted Instagram, TikTok, and YouTube influencers.</p>
+                </div>
+            </div>
+            <div class="arrow" id="arrow1"><img src="/arrow-right-icon-2048x1441-yp1nb0oo-removebg-preview.png" alt="" class="arrowimg"></div>
+            <div class="step">
+                <img src="/DALL·E 2024-11-01 17.20.24 - A professional and secure-looking illustration showing a person making an online purchase with a laptop, emphasizing secure transactions. The image sh.webp" alt="Purchase Securely">
+                <div class="step-text">
+                    <h3>2</h3>
+                    <h4>Purchase Securely</h4>
+                    <p>Safely purchase through Brand Buddies. We hold your payment until the work is completed.</p>
+                </div>
+            </div>
+            <div class="arrow" id="arrow2"><img src="/arrow-right-icon-2048x1441-yp1nb0oo-removebg-preview.png" alt="" class="arrowimg" id="arrowimg2"></div>
+            <div class="step">
+                <img src="/DALL·E 2024-11-01 17.25.44 - A scene of a diverse group of influencers creating high-quality content on various platforms, like photography and videos. They are in a modern studio.webp" alt="Receive Quality Content">
+                <div class="step-text">
+                    <h3>3</h3>
+                    <h4>Receive Quality Content</h4>
+                    <p>Receive your high-quality content from influencers once the campaign is finished.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="highlights">
+    <div class="containeer" id="highlights-container">
+        <!-- json -->
+    </div>
+</section>
+
+<section>
+    <div class="faq">
+        <h2>FAQs</h2>
+        <!-- Json-->
+    </div>
+</section>
+
+
+<section class="search-influencers"></section>
+    <div class="search-content">
+
+        <h4>Find and Hire Influencers</h4>
+        <p>Search Instagram, Facebook, and YouTube influencers.</p>
+    </div>
+</section>
+
+<footer>
+        <div class="footer-content">
+            <div class="column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Creator Hub</a></li>
+                    <li><a href="">Affiliate Program</a></li>
+                    <li><a href="">2024 Influencer Marketing Report</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Discover</h3>
+                <ul>
+                    <li><a href="">Find Influencers</a></li>
+                    <li><a href="">Top Influencers</a></li>
+                    <li><a href="">Search Influencers</a></li>
+                    <li><a href="">Buy Shoutouts</a></li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">How It Works</a></li>
+                    <li><a href="">Frequently Asked Questions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="connect-with-us">
+            <div class="footer-content">
+                <div class="footer-title">
+                    <h4>Connect<br>With Us</h4>
+                </div>
+
+                <div class="social-links">
+                    <div class="social-item">
+                        <a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram">
+                            <p>Instagram</p></a>
+                    </div>
+                    <div class="social-item">
+                       <a href="https://x.com" target="_blank"><img src="x.png" alt="X">
+                        <p>X</p></a> 
+                    </div>
+                    <div class="social-item">
+                        <a href="https://facebook.com" target="_blank">
+                            <img src="facebook.png" alt="Facebook" class="facebook">
+                        <p>facebook</p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</footer>
+
+<script src="/public/BrandBuddies.js"></script>
+</body>
+</html>

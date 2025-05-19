@@ -1,0 +1,29 @@
+[
+    {
+        "name": "Ankit Baiyanpuria",
+        "location": "Haryana, India",
+        "platform": "YouTube",
+        "category": "Fitness Influencer",
+        "price": "$500",
+        "url": "https://www.youtube.com/channel/UCSvoZtSPcju-jTBwxwh_29A",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpcg1I2_K25iEcrE5uYP6_kvSHHmRjht-VbQ&s"
+    },
+    {
+        "name": "Karan Sehgal",
+        "location": "Gurugram, Haryana, India",
+        "platform": "Instagram",
+        "category": "Travel Influencer",
+        "price": "$250",
+        "url": "https://www.instagram.com/karansehgal__/?hl=en",
+        "image": "https://yt3.googleusercontent.com/ytc/AIdro_kgGwuEjeuj0W9qxbNfy3I3ygxMnhAf0S4f5CcmH1nB3HQ=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+        "name": "Tehraan Bakshi",
+        "location": "Mumbai, Maharashtra, India",
+        "platform": "Instagram",
+        "category": "Fashion Influencer",
+        "price": "$200",
+        "url": "https://www.instagram.com/tehraanbakshi/?hl=en",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qtcDm_ooQyi-iNWa8yKsS5jRdF12ntYvhg&s"
+    }
+]

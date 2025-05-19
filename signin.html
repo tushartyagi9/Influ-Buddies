@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brand Buddies/Create Account</title>
+   
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background-image:url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+
+        }
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius:8px;
+    background-color:#D1DAF5;
+    box-shadow:4px 8px 5px grey;
+    padding-right:80px;
+    margin-bottom:50px;
+    width:1200px;
+    margin-left:60px;
+    margin-top: 10px;;
+}
+.logo{
+    font-family:Irish Grover;
+    font-size:30px;
+    font-weight:bold;
+}
+.gradient-text {
+    background-image: linear-gradient(to right,#ff6666, #4b2e02);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+    font-weight: bold; 
+    text-shadow:4px 4px 4px darkgrey;
+}
+.subheading{
+    font-size:15px;
+    font-weight: bold; 
+}
+h1{
+    font-family:Kalam;
+    font-style:Italic;
+}
+
+
+
+.about a,
+.login a, .home a{
+    color: inherit; 
+    text-decoration: none; 
+    font-weight:bold;
+}
+
+.about a:hover,
+.login a:hover,.home a:hover{
+    color:grey;
+}
+
+        .page-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #fffdfd;
+        }
+        .brand-header {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1e1479;
+        }
+        .content-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 400px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .social-signup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .social-signup:hover {
+            background-color: #e2e2e2;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        .social-signup img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+        .divider:not(:empty)::before {
+            margin-right: 10px;
+        }
+        .divider:not(:empty)::after {
+            margin-left: 10px;
+        }
+        form {
+            text-align: left;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+            display: block;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 5px;
+            box-shadow: 0 2px 4px rgba(218, 197, 197, 0.1);
+        }
+        .sign-up-button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #4CAF50, #2196F3);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .sign-up-button:hover {
+            opacity: 0.9;
+        }
+        .terms {
+            font-size: 12px;
+            color: #999;
+            margin-top: 10px;
+        }
+        .terms a {
+            color: #999;
+            text-decoration: underline;
+        }
+        .login-link {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .login-link a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+/* Loading Spinner */
+.spinner {
+    display: none;/* Hidden by default */
+    width: 40px;
+    height: 40px;
+    border: 6px solid #ccc;
+    border-top: 6px solid #2196F3;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="logo">Brand Buddies</div>
+           
+
+                
+                <p class="home"><a href="http://127.0.0.1:5500/homebb.html">Home</a></p> 
+                      <p class="about"><a href="http://127.0.0.1:5500/aboutus.html">About Us</a></p>     
+        </header>
+        <div class="content-container">
+            <div class="container">
+                <h1>Log In</h1>
+                <div class="social-signup">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgNDggNDgiPjxkZWZzPjxwYXRoIGlkPSJhIiBkPSJNNDQuNSAyMEgyNHY4LjVoMTEuOEMzNC43IDMzLjkgMzAuMSAzNyAyNCAzN2MtNy4yIDAtMTMtNS44LTEzLTEzczUuOC0xMyAxMy0xM2MzLjEgMCA1LjkgMS4xIDguMSAyLjlsNi40LTYuNEMzNC42IDQuMSAyOS42IDIgMjQgMiAxMS44IDIgMiAxMS44IDIgMjRzOS44IDIyIDIyIDIyYzExIDAgMjEtOCAyMS0yMiAwLTEuMy0uMi0yLjctLjUtNHoiLz48L2RlZnM+PGNsaXBQYXRoIGlkPSJiIj48dXNlIHhsaW5rOmhyZWY9IiNhIiBvdmVyZmxvdz0idmlzaWJsZSIvPjwvY2xpcFBhdGg+PHBhdGggY2xpcC1wYXRoPSJ1cmwoI2IpIiBmaWxsPSIjRkJCQzA1IiBkPSJNMCAzN1YxMWwxNyAxM3oiLz48cGF0aCBjbGlwLXBhdGg9InVybCgjYikiIGZpbGw9IiNFQTQzMzUiIGQ9Ik0wIDExbDE3IDEzIDctNi4xTDQ4IDE0VjBIMHoiLz48cGF0aCBjbGlwLXBhdGg9InVybCgjYikiIGZpbGw9IiMzNEE4NTMiIGQ9Ik0wIDM3bDMwLTIzIDcuOSAxTDQ4IDB2NDhIMHoiLz48cGF0aCBjbGlwLXBhdGg9InVybCgjYikiIGZpbGw9IiM0Mjg1RjQiIGQ9Ik00OCA0OEwxNyAyNGwtNC0zIDM1LTEweiIvPjwvc3ZnPg==" alt="Google logo">
+                    Sign up with Google
+                </div>
+                <div class="social-signup">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt="Apple logo">
+                    Sign up with Apple
+                </div>
+                <div class="divider">or</div>
+                <form id="loginForm">
+                    
+                    <div class="input-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="sign-up-button">Sign In</button>
+                    <div class="spinner" id="loadingSpinner"></div>
+                </form>
+                <p id="message" class="error-message"></p>
+                <p class="terms">
+                    By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.
+                </p>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let users = [];
+
+//fetch users data from JSON
+fetch('users.json')
+    .then(response => response.json())
+    .then(data => {
+        users = data;
+    })
+    .catch(error => console.error('Error loading user data:', error));
+
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    //show the loading spinner
+    document.getElementById('loadingSpinner').style.display = 'block';
+    
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    
+
+    setTimeout(() => {
+        //find user in the fetched data
+        const user = users.find(user => user.username === username && user.password === password);
+        const messageElement = document.getElementById('message');
+
+        document.getElementById('loadingSpinner').style.display = 'none';
+
+        if (user) {
+            messageElement.textContent = "Login successful!";
+            messageElement.style.color = "green";
+            setTimeout(() => {
+                window.location.href = "http://127.0.0.1:5500/BrandBuddies.html"; 
+            }, 1000);
+        } else {
+            messageElement.textContent = "Invalid username or password.";
+            messageElement.style.color = "red";
+        }
+    }, 2000); 
+});
+
+
+//testing
+document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    //retrieve stored users from localStorage
+    let users = JSON.parse(localStorage.getItem('users')) || [];
+
+    const user = users.find(user => user.username === username && user.password === password);
+    const messageElement = document.getElementById('message');
+
+    if (user) {
+        messageElement.textContent = "Login successful!";
+        messageElement.style.color = "green";
+        setTimeout(() => {
+            window.location.href = "http://127.0.0.1:5500/BrandBuddies.html"; // Redirect to the homepage or dashboard
+        }, 1000);
+    } else {
+        messageElement.textContent = "Invalid username or password.";
+        messageElement.style.color = "red";
+    }
+});
+
+    </script>
+</body>
+</html>
+

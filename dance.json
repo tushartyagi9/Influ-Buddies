@@ -1,0 +1,88 @@
+{
+  "influencers": [
+    {
+      "name": "Dhanashree Verma",
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "images/v512_188.png",
+      "socialMedia":"https://www.youtube.com/@DhanashreeVerma"
+    },
+    {
+      "name": "Akash Thapa",
+      "location": "Uttrakhand",
+      "gender":"male",
+      "image": "images/v512_166.png",
+      "socialMedia":"https://www.youtube.com/@theakashthapa4354"
+    },
+    {
+      "name": "Daphisha Kharbani",
+      "location": "Rajasthan",
+      "gender":"female",
+      "image": "images/v512_167.png",
+      "socialMedia":"https://www.youtube.com/@daphishakharbani"
+    },
+    {
+      "name": "Shakti Mohan",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 162621.png",
+      "socialMedia":"https://www.instagram.com/mohanshakti/"
+    },
+    {
+      "name": "Raghav Juyal",
+      "location": "Uttrakhand",
+      "gender":"male",
+      "image": "images/Screenshot 2024-10-12 163505.png",
+      "socialMedia":"https://www.instagram.com/raghavjuyal/"
+    },
+    {
+      "name": "Vartika Jha",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 183517.png",
+      "socialMedia":"https://www.instagram.com/jhavartika/"
+    },
+    {
+      "name": "Melvin Louis",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "images/Screenshot 2024-10-12 184815.png",
+      "socialMedia":"https://www.instagram.com/melvinlouis/"
+    },
+    {
+      "name": "Paridhi Sharma",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 185523.png",
+      "socialMedia":"https://www.instagram.com/paridhiofficial/"
+    },
+    {
+      "name": "Shobana ChandraKumar",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 190502.png",
+      "socialMedia":"https://www.instagram.com/tanyabhushan/"
+    },
+    {
+      "name": "Tanya Bhushan",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 191508.png",
+      "socialMedia":"https://www.instagram.com/tanyabhushan/"
+    },
+    {
+      "name": "Mohit Solanki",
+      "location": "Rajasthan",
+      "gender":"male",
+      "image": "images/Screenshot 2024-10-12 195954.png",
+      "socialMedia":"https://www.instagram.com/mohitsolanki11/"
+    },
+    {
+      "name": "Disha Madan",
+      "location": "Uttrakhand",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 202206.png",
+      "socialMedia":"https://www.instagram.com/disha.madan/"
+    }
+  ]
+}

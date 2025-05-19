@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Details Form</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* styles.css */
+
+    header{
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius:8px;
+    background-color:#D1DAF5;
+    box-shadow:4px 8px 5px grey;
+    padding-right:80px;
+    margin-bottom:50px;
+    width:1200px;
+    margin-left:60px;
+}
+.logo{
+    font-family:Irish Grover;
+    font-size:30px;
+    font-weight:bold;
+}
+.afterlogo{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; 
+}
+.gradient-text {
+    background-image: linear-gradient(to right,#EB4343, #852626);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+    font-weight: bold; 
+    text-shadow:2px 4px 4px darkgrey;
+}
+.subheading{
+    font-size:15px;
+    font-weight: bold; 
+}
+h1{
+    font-family:Kalam;
+    font-style:Italic;
+}
+.search-bar {
+    display: flex; 
+    align-items: center; 
+    border: 2px solid #ccc; 
+    border-radius: 25px; 
+    padding: 5px 10px; 
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+#search-btn{
+    border:none;
+    padding:4px;
+    background-color:#87CEEB;
+    color:white;
+    border-radius:10px;
+
+}
+#search-btn:hover{
+    cursor:pointer;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px; 
+    padding: 10px; 
+    border-radius: 20px; 
+    background-color: transparent; 
+}
+
+.search-bar input::placeholder {
+    placeholder:"Search...";
+    color: #aaa; 
+    opacity: 0.7;
+}
+
+.search-bar:hover {
+    border-color: #888; 
+}
+.userdetail{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:4px solid lightgrey;
+}
+.about a, .home a{
+    color: inherit; 
+    text-decoration: none; 
+    font-weight:bold;
+}
+
+.about a:hover,.home a:hover{
+    color:grey;
+}
+
+body {
+    background-image:url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 100px;
+}
+
+.form-container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 4px 8px 12px rgba(107, 106, 106, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group input[type="radio"] {
+  margin-right: 5px;
+}
+/* Align radio buttons with their labels on the same line */
+.form-group .gender-options {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.gender-options label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+label {
+    display: flex;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="url"],
+button {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+#result {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: green;
+  text-align: center;
+}
+
+ 
+ </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Brand Buddies</div>
+   
+        <div class="afterlogo">
+            <p class="home"><a href="http://127.0.0.1:5500/BrandBuddies.html">Home</a></p> 
+            <p class="about"><a href="http://127.0.0.1:5500/aboutus.html">About Us</a></p>       
+             <div class="user-dropdown" id="userDropdown">
+              <div class="user-details">
+                  <div class="user-top"><img src="/WhatsA" alt="User Profile" class="dropdown-profile-pic">
+                    <h3 class="username">Prateek Yadav</h3></div>
+                  <p class="user-email">Email: prateekyadav@gmail.com</p>
+                  <!-- <p class="user-phone">Mobile no.: +91 9462151708</p> -->
+                  <p class="user-bio">Bio:</p>
+                  
+                  <div class="social-links">
+                      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                      <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                  </div>
+                  <a href="http://localhost:3000/BrandBuddies.html"><button class="btn">Home</button></a>
+              </div>
+          </div>
+        </div>
+      
+</header>
+
+    <h1>Enter your details to get listed on Brand Buddies</h1>
+   
+
+    <div class="form-container">
+      <form action="http://localhost:3000/influencers/add" method="POST" enctype="multipart/form-data">
+
+
+
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+        <div class="form-group">
+          <label for="gender">Gender:</label>
+          <select name="gender" id="gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="image">Upload Image:</label>
+          <input type="file" id="image" name="image" accept="image/*">
+        </div>
+        <div class="form-group">
+          <label for="socialMediaLink">Social Media Link:</label>
+          <input type="url" id="socialMediaLink" name="socialMediaLink" required>
+        </div>
+        <div class="form-group">
+          <label for="platform">Platform:</label>
+          <select name="platform" id="platform" required>
+            <option value="">Select Platform</option>
+            <option value="Instagram">Instagram</option>
+            <option value="YouTube">YouTube</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Multiple">Multiple</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category">Category:</label>
+          <select name="category" id="category" required>
+            <option value="">Select Category</option>
+            <option value="Dance">Dance</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Travel">Travel</option>
+            <option value="Beauty">Beauty</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required>
+        </div>
+        <button type="submit">Add Influencer</button>
+      </form>
+      
+    
+    
+  <script>
+    // script.js
+document.getElementById('userForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const location = document.getElementById('location').value;
+  const gender = document.querySelector('input[name="gender"]:checked')?.value;
+  const socialMedia = document.getElementById('socialMedia').value;
+  const image = document.getElementById('image').files[0];
+
+  if (name && location && gender && socialMedia && image) {
+    const reader = new FileReader();
+    reader.onload = function () {
+      document.getElementById('result').innerHTML = `
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Location:</strong> ${location}</p>
+        <p><strong>Gender:</strong> ${gender}</p>
+        <p><strong>Social Media Link:</strong> <a href="${socialMedia}" target="_blank">${socialMedia}</a></p>
+        <p><strong>Uploaded Image:</strong></p>
+        <img src="${reader.result}" alt="Uploaded Image" style="max-width: 100%; height: auto; border: 1px solid #ccc; border-radius: 4px;">
+      `;
+    };
+    reader.readAsDataURL(image);
+  } else {
+    alert('Please fill out all fields.');
+  }
+});
+
+  </script>
+</body>
+</html>

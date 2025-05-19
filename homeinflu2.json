@@ -1,0 +1,29 @@
+[
+
+    {
+        "name": "Lovepreet Jaggi",
+        "platform": "Instagram",
+        "category": "Travel Influencer",
+        "price": "$50",
+        "url": "https://www.instagram.com/boyonglobe/",
+        "image": "https://pbs.twimg.com/profile_images/1623309396871892993/FZaLO9gP_400x400.jpg"
+    },
+    {
+        "name": "Riti Kumari",
+        "platform": "Instagram",
+        "category": "Academic Influencer",
+        "price": "$75",
+        "url": "https://www.instagram.com/ritikumariupadhyay24/",
+        "image": "https://yt3.googleusercontent.com/a1AlHErjIwgvLvP2ErAB271TZJ8wFkDjRbphY9qXLV0OU0yAc8phisY8xvX_6YtqJt_auZcE=s900-c-k-c0x00ffffff-no-rj"
+    }
+    ,
+    {
+        "name": "Sahil Ansari",
+        "platform": "Instagram",
+        "category": "Fashion Influencer",
+        "price": "$70",
+        "url": "https://www.instagram.com/sahilansariofficial/?hl=en",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtxIRqY52FvZ_GdAmUuRzw_2Xs2zqXc7sB5Q&s"
+    }
+    
+]

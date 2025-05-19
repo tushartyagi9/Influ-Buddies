@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kadwa&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Fashion Influencers</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }body{
+    background-image:url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+    border-radius:8px;
+    background-color:#D1DAF5;
+    box-shadow:4px 8px 5px grey;
+    padding-right:80px;
+    margin-bottom:50px;
+    width:1300px;
+    margin-left:60px;
+    margin-top: 10px;
+
+}
+.logo{
+    font-family:Irish Grover;
+    font-size:30px;
+    font-weight:bold;
+}
+.afterlogo{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; 
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute; 
+    right: 10px; 
+    top: 60px; 
+    background-color: white;
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    padding: 15px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+    width: 300px;
+}
+
+.user-details {
+    text-align: left;
+}
+#userimage:hover{
+    cursor: pointer;
+}
+
+.dropdown-profile-pic {
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+}
+
+.username {
+    margin: 10px 0 5px; 
+    font-size: 18px; 
+}
+
+.user-email, .user-phone, .user-bio {
+    margin: 5px 0; 
+    font-size: 14px; 
+}
+.userdetail{
+    width:40px;
+    height:40px;
+    border-radius: 100px;
+}
+
+.social-links {
+    margin-left:0;
+    margin-right:40px;
+}
+.social-links a {
+    margin-right: 10px; 
+    color: #000;
+    font-size: 20px; 
+}
+
+        
+
+        .about a,
+        .login a,
+        .home a {
+            color: inherit;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .about a:hover,
+        .login a:hover,
+        .home a:hover {
+            color: grey;
+        }
+
+        .maindiv{
+            width: 100%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 1);
+            position: relative;
+            overflow: hidden;
+            margin-left: 120px;
+            background-image:url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+
+        }
+
+        .filter-buttons {
+            margin: 0px 30px 0px 30px;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        select {
+            background: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(155, 155, 155, 1);
+            border-radius: 30px;
+            padding: 5px 15px;
+            cursor: pointer;
+            font-size: 14px;
+
+        }
+
+        select:focus {
+            outline: none;
+        }
+
+        .heading{
+            color: rgba(0, 0, 0, 1);
+            font-family: Kadwa, serif;
+            font-weight: bold;
+            font-size: 35px;
+            text-align: center;
+            margin-bottom: 30px;
+            
+        }
+
+        .influencer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(300px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+        .influencer-grid a {
+    color: inherit;
+    text-decoration: none;
+}
+
+        .influencer-card {
+            background: rgba(217, 217, 217, 1);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .influencer-card:hover {
+            transform: scale(1.03);
+        }
+        .influencer-image {
+            width: 100%;
+            height: 395px;
+            object-fit: cover;
+        }
+
+        .influencer-info {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            text-align: center
+        }
+
+        .next-page-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .next-page-button a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+       
+        @media (max-width: 768px) {
+            .influencer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    /* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal Content */
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Image */
+.modal-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Modal Title */
+.modal-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+/* Modal Location */
+.modal-location {
+    color: #555;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Social Links */
+.social-links {
+    margin-bottom: 15px;
+}
+
+.social-link {
+    margin-left:53px;
+    text-decoration: none;
+    color: white;
+    background-color: #007BFF;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #0056b3;
+}
+
+/* Close Button */
+.modal-close {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #D1DAF5;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: #A3B2F0;
+}
+
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">Brand Buddies</div>
+       
+            <div class="afterlogo">
+                <p class="home"><a href="http://127.0.0.1:5500/BrandBuddies.html">Home</a></p> 
+            
+                <p class="about"><a href="http://127.0.0.1:5500/aboutus.html">About Us</a></p> 
+                 <img src="/WhatsApp Image 2024-10-18 at 14.45.33.jpeg" alt="user" class="userdetail" id="userImage">       
+                 <div class="user-dropdown" id="userDropdown">
+                  <div class="user-details">
+                      <img src="/WhatsApp Image 2024-10-18 at 14.45.33.jpeg" alt="User Profile" class="dropdown-profile-pic">
+                      <h3 class="username">Prateek Yadav</h3>
+                      <p class="user-email">prateekyadav.com</p>
+                      <p class="user-phone">+91 9462151708</p>
+                      <p class="user-bio">Bio:</p>
+                      
+                      <div class="social-links">
+                          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+                          <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                      </div>
+                      
+                      <a href="http://127.0.0.1:5500/signup.html"><button class="btn">Logout</button></a>
+                  </div>
+              </div>
+            </div>
+          
+</header>
+
+    <div class="maindiv">
+        <h1 class="heading">Fashion Influencers</h1>
+        <div class="filter-buttons">
+            <!-- Location Dropdown -->
+            <select>
+                 <option value="">Location</option>
+                <option value="maharashtra">Maharashtra</option>
+                <option value="delhi">Delhi</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Haryana">Haryana</option>
+                <option value="UttarPradesh">UttarPradesh</option>
+                <option value="Uttrakhand">Uttrakhand</option>
+
+            </select>
+            <select>
+                <option value="">Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+
+        <div class="influencer-grid" id="influencer-grid">
+            <!-- Json -->
+        </div>
+
+           
+    </div>
+
+    <script>
+        //user detail
+        document.querySelector('.userdetail').addEventListener('click', function() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
+        });
+        window.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('userDropdown');
+            if (!event.target.matches('.userdetail') && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+        
+        
+        
+        let influencersData = []; 
+        //to store the fetched influencer data
+        
+           
+        //fetch data from JSON and render it dynamically
+        fetch('fashion.json')
+            .then(response => response.json())
+            .then(data => {
+                influencersData = data.influencers; 
+                renderInfluencers(influencersData);
+            })
+            .catch(error => console.error('Error fetching data:', error));
+        
+        //Function to render influencers to the grid
+        function renderInfluencers(influencers) {
+            const influencerGrid = document.getElementById('influencer-grid');
+            influencerGrid.innerHTML = '';
+        
+            if (influencers.length === 0) {
+                const noResultMessage = document.createElement('p');
+                noResultMessage.textContent = "No influencers found for the selected filters.";
+                noResultMessage.style.textAlign = "center"; 
+                noResultMessage.style.alignItems = "center"; 
+                noResultMessage.style.fontSize = "18px"; 
+                influencerGrid.appendChild(noResultMessage);
+                return;
+            }
+        
+            //render the matching influencers
+            influencers.forEach(influencer => {
+                const link = document.createElement('a');
+                link.href = influencer.socialMedia;
+                link.target = '_blank';
+        
+                const card = document.createElement('div');
+                card.classList.add('influencer-card');
+        
+                const img = document.createElement('img');
+                img.src = influencer.image;
+                img.alt = influencer.name;
+                img.classList.add('influencer-image');
+        
+                const info = document.createElement('div');
+                info.classList.add('influencer-info');
+        
+                card.appendChild(img);
+                card.appendChild(info);
+                link.appendChild(card); 
+                influencerGrid.appendChild(link);
+            });
+        }
+        // Reset Button for Filters
+        const resetButton = document.createElement("button");
+        resetButton.textContent = "Reset Filters";
+        resetButton.style.padding = "5px 15px";
+        resetButton.style.borderRadius = "30px";
+        resetButton.style.cursor = "pointer";
+        resetButton.style.backgroundColor = "#D1DAF5";
+        resetButton.addEventListener("click", () => {
+            locationDropdown.value = "";
+            genderDropdown.value = "";
+            renderInfluencers(influencersData); // Reset to all influencers
+        });
+        
+        document.querySelector(".filter-buttons").appendChild(resetButton);
+        
+        
+        // Filter influencers based on location and gender
+        const locationDropdown = document.querySelector('select:nth-child(1)'); //select location drpdwn
+        const genderDropdown = document.querySelector('select:nth-child(2)'); //select gender drpdwn
+        
+        function filterInfluencers() {
+            const selectedLocation = locationDropdown.value.toLowerCase();
+            const selectedGender = genderDropdown.value.toLowerCase();
+        
+            const filteredInfluencers = influencersData.filter(influencer => {
+                const matchesLocation = selectedLocation === "" || influencer.location.toLowerCase() === selectedLocation;
+                const matchesGender = selectedGender === "" || influencer.gender.toLowerCase() === selectedGender;
+        
+                return matchesLocation && matchesGender;
+            });
+        
+            renderInfluencers(filteredInfluencers);
+        }
+        
+        locationDropdown.addEventListener('change', filterInfluencers);
+        genderDropdown.addEventListener('change', filterInfluencers);
+        
+        // Modal Popup for Influencer Details
+        function openModal(influencer) {
+    const modal = document.createElement("div");
+    modal.classList.add("modal-overlay");
+    
+    const modalContent = `
+        <div class="modal-content">
+            <img src="${influencer.image}" class="modal-image" />
+            <h2 class="modal-title">${influencer.name}</h2>
+            <p class="modal-location">${influencer.location}</p>
+            <div class="social-links">
+                <a href="${influencer.socialMedia}" target="_blank" class="social-link">View Profile</a>
+            </div>
+            <button onclick="document.body.removeChild(this.parentElement.parentElement)" class="modal-close">
+                Close
+            </button>
+        </div>
+    `;
+
+    modal.innerHTML = modalContent;
+    document.body.appendChild(modal);
+}
+        
+        // Update renderInfluencers to include modal on click
+        function renderInfluencers(influencers) {
+            const influencerGrid = document.getElementById("influencer-grid");
+            influencerGrid.innerHTML = "";
+        
+            if (influencers.length === 0) {
+                const noResultMessage = document.createElement("p");
+                noResultMessage.textContent = "No influencers found for the selected filters.";
+                noResultMessage.style.textAlign = "center";
+                noResultMessage.style.fontSize = "18px";
+                influencerGrid.appendChild(noResultMessage);
+                return;
+            }
+        
+            influencers.forEach(influencer => {
+                const card = document.createElement("div");
+                card.classList.add("influencer-card");
+                card.innerHTML = `
+                    <img src="${influencer.image}" alt="${influencer.name}" class="influencer-image" />
+                   
+                `;
+                card.addEventListener("click", () => openModal(influencer));
+                influencerGrid.appendChild(card);
+            });
+        }
+        
+        </script>
+</body>
+</html>

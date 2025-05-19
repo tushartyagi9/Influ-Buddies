@@ -1,0 +1,88 @@
+{
+  "influencers": [
+    {
+      "name": "Nagma Mirajkar",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://i.pinimg.com/736x/32/94/2c/32942c3bd1e4d0d5ad7ad5d5cc130811.jpg",
+      "socialMedia": "https://www.youtube.com/@NagmaMirajkar"
+    },
+    {
+      "name": "Barkha Singh",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "https://www.yashrajfilms.com/images/default-source/Alumni/barkha-singh.jpg?sfvrsn=b886c7cc_0",
+      "socialMedia":"https://www.youtube.com/@BarkhaSingh"
+    },
+    {
+      "name": "Komal Pandey",
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "https://cdn.shopify.com/s/files/1/1488/1130/files/The_shoulder-length_ombre_style_ef0cda3c-0f62-4400-a498-3e17d6251fcb.png?v=1658398194",
+      "socialMedia":"https://www.instagram.com/komalpandeyofficial/"
+    },
+    {
+      "name": "isha borah",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "https://yt3.googleusercontent.com/E173453LgoJvD1apm7OtlXCtRWGG_NSSDYrKv_cZm5akM_DReL9O5kHMMWcoTU4_4o86Raou=s900-c-k-c0x00ffffff-no-rj",
+      "socialMedia":"https://www.youtube.com/@ishaborah03"
+    },
+    {
+      "name": "Karron S Dhinggra",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "https://starsunfolded.com/wp-content/uploads/2022/01/Karron-S-Dhinggra-Image.jpg",
+      "socialMedia":"https://www.instagram.com/theformaledit/"
+    },
+    {
+      "name": "Aayushi Verma",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://i.pinimg.com/736x/d4/27/91/d427912943061cfbf74f41bb9a27a5b8.jpg",
+      "socialMedia":"https://www.instagram.com/aayushiivermaa/"
+    },
+    {
+      "name": "Apoorva Mukhija",
+      "location": "Uttrakhand",
+      "gender":"female",
+      "image": "https://s.talentrack.in/uploads/acc_img/431/664/optim_431664_669abebf10d64.jpg",
+      "socialMedia":"https://www.instagram.com/the_rebel_kid_forever/"
+    },
+    {
+      "name": "Meghna Kaur",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "https://i.pinimg.com/originals/21/76/3d/21763d6a60af7ded698af5986445e46b.jpg",
+      "socialMedia":"https://www.instagram.com/shetroublemaker/"
+    },
+    {
+      "name": "Radhika Seth",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "https://img-mm.manoramaonline.com/content/dam/mm/mo/web-stories/movies/images/2023/10/8/radhika-seth-2.jpg",
+      "socialMedia":"https://www.youtube.com/@RadhikaSethh"
+    },
+    {
+      "name": "Tehraan Bakshi",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6qtcDm_ooQyi-iNWa8yKsS5jRdF12ntYvhg&s",
+      "socialMedia":"https://www.instagram.com/tehraanbakshi/"
+    },
+    {
+      "name": " Sanket Mehta",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "https://yt3.googleusercontent.com/ytc/AIdro_kDci6tjv0AtqOH-A7p-imYYb_4-6RhtwsM-VNTp_ObHxuR=s900-c-k-c0x00ffffff-no-rj",
+      "socialMedia":"https://www.instagram.com/sankett25/"
+    },
+    {
+      "name": "Vipul Juneja",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "https://i.pinimg.com/originals/a4/12/4e/a4124e6a33fa92121c18d57fbb5e2c2c.jpg",
+      "socialMedia":"https://www.instagram.com/vipul_juneja/"
+    }
+  ]
+}

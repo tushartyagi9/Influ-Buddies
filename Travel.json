@@ -1,0 +1,88 @@
+{
+  "influencers": [
+    {
+      "name": "Larissa D’Sa",
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "https://i0.wp.com/blog.bigbang.social/wp-content/uploads/2021/08/239454077_365073755090930_4415153884844635440_n-e1629541410551.jpeg?fit=1080%2C621&ssl=1",
+      "socialMedia": "https://www.youtube.com/@larissa_wlc"
+    },
+    {
+      "name": "Aakanksha Monga",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://yt3.googleusercontent.com/uyENZPLrS1rwtBabz6fn6lWZYl-ijvGO8OPOBZJF__F7RDKoAL4LfzBVk2SNhfe1IqLRn1G35wo=s900-c-k-c0x00ffffff-no-rj",
+       "socialMedia": "https://www.youtube.com/@aakanksha_monga"
+    },
+    {
+      "name": "Siddhartha Joshi",
+      "location": "UttarPradesh",
+      "gender":"male",
+      "image": "https://yt3.googleusercontent.com/ObgQn6SZ-uafkkKf2zyfb7hQUf4mBpd14zhWTvRXAEpTqRWMDAI7UB0D3AGgDH-uhDZ4qHcugA=s900-c-k-c0x00ffffff-no-rj",
+       "socialMedia": "https://www.youtube.com/@SiddharthaJoshiFilms"
+    },
+    {
+      "name": "Sharanya Iyer",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://itsagirlthing.live/wp-content/uploads/2021/03/SHARANYA.jpg",
+       "socialMedia": "https://www.youtube.com/@TrulyNomadly"
+    },
+    {
+      "name": "Anunay Sood",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "https://www.forbesindia.com/lists/digital-stars/videos/Anunay_Sood_BG.jpg",
+       "socialMedia": "https://www.youtube.com/@AnunaySood"
+    },
+    {
+      "name": "Karan Seghal",
+      "location": "Haryana",
+      "gender":"male",
+      "image": "https://yt3.googleusercontent.com/ytc/AIdro_kgGwuEjeuj0W9qxbNfy3I3ygxMnhAf0S4f5CcmH1nB3HQ=s900-c-k-c0x00ffffff-no-rj",
+       "socialMedia": "https://www.youtube.com/@KARANSEHGALVLOGS"
+    },
+    {
+      "name": "Shramona Poddar",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "https://cdn.shopify.com/s/files/1/0645/9650/8925/articles/BeautyPlus_20200213132956052_save-01-768x1024_520x500.jpg?v=1660741448",
+       "socialMedia": "https://www.youtube.com/@Shramona."
+    },
+    {
+      "name": "Abhinav Chandel",
+      "location": "Uttrakhand",
+      "gender":"male",
+      "image": "https://pbs.twimg.com/media/C3KybZQWAAEAtfK.jpg",
+       "socialMedia": "https://www.instagram.com/abhiandnow/"
+    },
+    {
+      "name": " Aakash Malhotra",
+      "location": "Rajasthan",
+      "gender":"male",
+      "image": "https://cms-article.forbesindia.com/media/digital-stars/Aakash_Malhotra_H.webp",
+       "socialMedia": "https://www.instagram.com/wanderwithsky/"
+    },
+    {
+      "name": "Ankita Kumar",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://wp-socialnation-assets.s3.ap-south-1.amazonaws.com/wp-content/uploads/2022/09/27185007/DSC0298-01-1024x683.jpg",
+       "socialMedia": "https://www.instagram.com/monkey.inc/"
+    },
+    {
+      "name": "Raunaq",
+      "location": "UttarPradesh",
+      "gender":"male",
+      "image": "https://media.licdn.com/dms/image/v2/D5622AQEoXXwmCH7nQg/feedshare-shrink_800/feedshare-shrink_800/0/1711546001754?e=2147483647&v=beta&t=Fq6uvZWAjmbtyyF3URhgtqnk06gCDvXf5sveCaXUa3M",
+       "socialMedia": "https://www.instagram.com/monkeyxmagic/"
+    },
+    {
+      "name": "Navankur Chaudhary",
+      "location": "Haryana",
+      "gender":"male",
+      "image": "https://yt3.googleusercontent.com/ytc/AIdro_mHLlpY6DuyrE1_aF5EWHYOj2YHebD3IPrHUQ_DAZgNig=s900-c-k-c0x00ffffff-no-rj",
+       "socialMedia": "https://www.instagram.com/navankurchaudhary/"
+    }
+  ]
+}

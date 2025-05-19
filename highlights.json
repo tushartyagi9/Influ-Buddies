@@ -1,0 +1,22 @@
+[
+    {
+        "icon": "$",
+        "title": "No Upfront Cost",
+        "description": "Search influencers for free. No subscriptions, contracts or hidden fees."
+    },
+    {
+        "icon": "✔",
+        "title": "Vetted Influencers",
+        "description": "Every influencer is vetted by us. Always receive high-quality, professional content."
+    },
+    {
+        "icon": "💬",
+        "title": "Instant Chat",
+        "description": "Instantly chat with influencers and stay in touch throughout the whole transaction."
+    },
+    {
+        "icon": "🔒",
+        "title": "Secure Purchases",
+        "description": "Your money is held safely until you approve the influencer's work."
+    }
+]

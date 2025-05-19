@@ -1,0 +1,116 @@
+{
+  "influencers": [
+    {
+      "name": "Somya Gupta",
+      "location": "Rajasthan",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 030852.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@Thesassthing_"
+    },
+    {
+      "name": "Juhi Godambe",
+      "location": "Haryana",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-12 215457.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@JuhiGodamb"
+    },
+    {
+      "name": "Kritika Khuran",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 012250.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@kritikathatbohogirl"
+    },
+    {
+      "name": "Malvika Sitlani", 
+      "location": "Maharashtra",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 013233.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@ThatGirlInVogue"
+    },
+    {
+      "name": "Mrunal Panchal",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 013951.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@GujjuUnicorn"
+    },
+    {
+      "name": "Amulya Rattan",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 015549.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@AmulyaRattan"
+    },
+    {
+      "name": "Swati Verma Nanda",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 024351.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@SwatiVermaMakeovers"
+    },
+    {
+      "name": "Kiwi Tandon", 
+      "location": "Uttrakhand",
+      "gender":"female",
+      "image": "images/Screenshot 2024-10-13 030852.png",
+      "category":"beauty",
+      "socialMedia": "https://www.youtube.com/@kiwitandon"
+    },
+    {
+      "name": "Daphisha Kharbani",
+      "location": "Rajasthan",
+      "gender":"female",
+      "image": "images/v512_167.png",
+      "category":"dance",
+      "socialMedia": "https://www.youtube.com/@daphishakharbani"
+    },
+    {
+      "name": "Melvin Louis",
+      "location": "Maharashtra",
+      "gender":"male",
+      "image": "images/Screenshot 2024-10-12 184815.png",
+      "category":"dance",
+      "socialMedia": "https://www.youtube.com/@MelvinLouis"
+    },
+    {
+        "name": "Mohit Solanki",
+        "location": "Rajasthan",
+        "gender":"male",
+        "image": "images/Screenshot 2024-10-12 195954.png",
+        "category":"dance",
+        "socialMedia": "https://www.youtube.com/@mohitsolankiofficial"
+    },
+    {
+      "name": "Nagma Mirajkar",
+      "location": "Delhi",
+      "gender":"female",
+      "image": "https://i.pinimg.com/736x/32/94/2c/32942c3bd1e4d0d5ad7ad5d5cc130811.jpg",
+      "category":"fashion",
+      "socialMedia": "https://www.youtube.com/@NagmaMirajkar"
+    },
+    {
+      "name": "isha borah",
+      "location": "UttarPradesh",
+      "gender":"female",
+      "image": "https://yt3.googleusercontent.com/E173453LgoJvD1apm7OtlXCtRWGG_NSSDYrKv_cZm5akM_DReL9O5kHMMWcoTU4_4o86Raou=s900-c-k-c0x00ffffff-no-rj",
+      "category":"fashion",
+      "socialMedia": "https://www.youtube.com/@ishaborah03"
+    },
+    {
+      "name": "Radhika Seth",
+      "location": "Punjab",
+      "gender":"female",
+      "image": "https://img-mm.manoramaonline.com/content/dam/mm/mo/web-stories/movies/images/2023/10/8/radhika-seth-2.jpg",
+      "category":"fashion",
+      "socialMedia": "https://www.youtube.com/@RadhikaSethh"
+    }
+  ]
+}

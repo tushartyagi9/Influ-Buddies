@@ -1,0 +1,311 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    position:relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius:8px;
+    background-color:#D1DAF5;
+    box-shadow:4px 8px 5px grey;
+    padding-right:80px;
+    margin-bottom:50px;
+    width:1300px;
+    margin-left:60px;
+    margin-top:10px;
+}
+.logo{
+    font-family:Irish Grover;
+    font-size:30px;
+    font-weight:bold;
+}
+.afterlogo{
+    display: flex;
+    justify-content: space-between;
+    gap: 100px; 
+}
+.gradient-text {
+    background-image: linear-gradient(to right,#EB4343, #852626);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 40px;
+    font-weight: bold; 
+    text-shadow:2px 4px 4px darkgrey;
+}
+.subheading{
+    font-size:15px;
+    font-weight: bold; 
+}
+h1{
+    font-family:Kalam;
+    font-style:Italic;
+}
+
+.search-bar {
+    display: flex; 
+    align-items: center; 
+    border: 2px solid #ccc; 
+    border-radius: 25px; 
+    padding: 5px 10px; 
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+#search-btn{
+    border:none;
+    padding:4px;
+    background-color:#87CEEB;
+    color:white;
+    border-radius:10px;
+
+}
+#search-btn:hover{
+    cursor:pointer;
+}
+
+.search-bar input {
+    border: none;
+    outline: none;
+    font-size: 16px; 
+    padding: 10px; 
+    border-radius: 20px; 
+    background-color: transparent; 
+}
+
+.search-bar input::placeholder {
+    placeholder:"Search...";
+    color: #aaa; 
+    opacity: 0.7;
+}
+
+.search-bar:hover {
+    border-color: #888; 
+}
+.userdetail{
+    width:40px;
+    height:40px;
+}
+.about a, .home a{
+    color: inherit; 
+    text-decoration: none; 
+    font-weight:bold;
+}
+.about a:hover,.home a:hover{
+    color:grey;
+}
+
+.hero {
+    text-align: center;
+    margin-top: 20px;
+}
+.user-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position the dropdown */
+    right: 10px; /* Aligns it to the right side of the page */
+    top: 60px; /* Adjust this value to position it below the user image */
+    background-color: white; /* Background color */
+    border: 1px solid #ccc; /* Border for the dropdown */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding for the content */
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow */
+    z-index: 1000; /* Ensures it's above other elements */
+}
+
+.user-details {
+    text-align: left; /* Align text to the left */
+}
+
+.dropdown-profile-pic {
+    width: 50px; /* Adjust width */
+    height: 50px; /* Adjust height */
+    border-radius: 50%; /* Make it circular */
+}
+
+.username {
+    margin: 10px 0 5px; /* Margin for spacing */
+    font-size: 18px; /* Font size for user name */
+}
+
+.user-email, .user-phone, .user-bio {
+    margin: 5px 0; /* Margin for spacing */
+    font-size: 14px; /* Font size for details */
+}
+
+.social-links {
+    margin-left:0;
+    margin-right:40px;
+}
+
+.social-links a {
+    margin-right: 10px; /* Spacing between icons */
+    color: #000; /* Color for social icons */
+    font-size: 20px; /* Size of icons */
+}
+
+.btn {
+    display: block; /* Button block display */
+    margin: 5px 0; /* Margin for spacing */
+    padding: 8px; /* Padding for buttons */
+    width: 100%; /* Full width */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    background-image:url("https://images.unsplash.com/photo-1582738411706-bfc8e691d1c2?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+
+}
+h1, h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Header Section */
+.header { padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.header h1 {
+    font-size: 4rem;
+    color: #3A3A3A;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*Section-1*/
+
+.section1 {
+    text-align: center;
+    padding: 20px;
+}
+
+.section1 h2 {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.section1 span {
+    font-weight: 700;
+}
+
+
+.section2 {
+    width: 1300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d2a44;
+    margin-left: 80px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.section2 p {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.what-we-do {
+    padding: 30px;
+    margin: 30px 0;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.content{
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    height: 700px;
+    width: 600px;
+}
+
+.content h3 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+.content p {
+    font-size: 1.1rem;
+    margin: 50px;
+}
+
+.partners {
+    padding: 30px;
+    text-align: center;
+}
+
+.partners h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.partners img{
+    height: 510px;
+    width: 560px;
+    align-items: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #e0e0e0;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid black;
+}
+
+.footer-title h4 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #762717; 
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.social-item {
+    text-align: center;
+}
+
+.social-item img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.social-item p {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.facebook{
+    border-radius:200px;
+}
