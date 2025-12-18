@@ -1,4 +1,4 @@
-# BInflu-Buddies
+# Influ-Buddies
 
 A lightweight full-stack web app to connect influencers with brands for collaborations.
 
