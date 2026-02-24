@@ -1,0 +1,71 @@
+.influencer-card {
+  background: #020617;
+  border-radius: 1rem;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  padding: 1rem;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.influencer-image-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: radial-gradient(circle at 30% 30%, #f97316, #1f2937);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.influencer-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.placeholder-avatar {
+  font-weight: 700;
+  color: #020617;
+}
+
+.influencer-body h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.influencer-body .muted {
+  font-size: 0.85rem;
+  color: #9ca3af;
+}
+
+.platforms,
+.stats {
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+}
+
+.card-actions {
+  margin-top: 0.6rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.favorite-btn {
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  background: transparent;
+  color: #e5e7eb;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.favorite-btn--active {
+  border-color: #f59e0b;
+  background: rgba(248, 250, 252, 0.05);
+  color: #fbbf24;
+}
+

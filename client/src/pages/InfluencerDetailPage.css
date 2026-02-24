@@ -1,0 +1,23 @@
+.influencer-detail .hero {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.influencer-detail .hero-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+
+.influencer-detail .muted {
+  color: #9ca3af;
+}
+
+@media (max-width: 768px) {
+  .influencer-detail .hero {
+    flex-direction: column;
+  }
+}
+
