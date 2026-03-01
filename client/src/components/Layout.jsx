@@ -15,6 +15,7 @@ export default function Layout() {
         </div>
         <nav className="nav-links">
           <NavLink to="/browse">Browse Influencers</NavLink>
+          {user?.role === 'brand' && <NavLink to="/ai-matcher" className="ai-matcher-link">🤖 AI Matcher</NavLink>}
           {user?.role === 'brand' && <NavLink to="/dashboard/brand">Brand Dashboard</NavLink>}
           {user?.role === 'influencer' && (
             <NavLink to="/dashboard/influencer">Influencer Dashboard</NavLink>

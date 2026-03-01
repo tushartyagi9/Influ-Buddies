@@ -42,6 +42,23 @@
   color: #f97316;
 }
 
+.ai-matcher-link {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white !important;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: transform 0.2s ease;
+}
+
+.ai-matcher-link:hover {
+  transform: scale(1.05);
+}
+
+.ai-matcher-link.active {
+  color: white !important;
+}
+
 .auth-actions {
   display: flex;
   align-items: center;

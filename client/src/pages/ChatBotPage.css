@@ -1,0 +1,368 @@
+.chatbot-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+}
+
+.chatbot-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.chatbot-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.chatbot-header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+.chatbot-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.chatbot-form-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+}
+
+.chatbot-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1rem;
+}
+
+.campaign-textarea {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  min-height: 150px;
+}
+
+.campaign-textarea:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.campaign-textarea:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.examples-section {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  border: 1px solid #ddd;
+}
+
+.examples-title {
+  margin: 0 0 0.75rem 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.examples-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.example-btn {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.75rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  color: #555;
+}
+
+.example-btn:hover {
+  background: #f0f0f0;
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  color: #c33;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.submit-btn,
+.clear-btn {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.clear-btn {
+  background: #f0f0f0;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.clear-btn:hover {
+  background: #e0e0e0;
+}
+
+.results-section {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.result-header {
+  margin-bottom: 2rem;
+}
+
+.result-header h2 {
+  font-size: 1.8rem;
+  margin: 0 0 0.5rem 0;
+  color: #333;
+}
+
+.result-message {
+  color: #666;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.criteria-summary {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.criteria-summary h3,
+.criteria-summary h4 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.criteria-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 6px;
+  border-left: 4px solid #667eea;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.criteria-label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 0.85rem;
+}
+
+.criteria-value {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.recommendation-box {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.recommendation-box h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.recommendation-text {
+  margin: 0;
+  color: #555;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.suggestion-box {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 1px solid rgba(102, 126, 234, 0.3);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.suggestion-box h3 {
+  margin: 0 0 1rem 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.suggestion-text {
+  margin: 0;
+  color: #555;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.matched-influencers {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.matched-influencers h3 {
+  margin: 0 0 1.5rem 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.influencers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.no-results {
+  background: #fef3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  color: #856404;
+}
+
+.no-results p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chatbot-content {
+    grid-template-columns: 1fr;
+  }
+
+  .chatbot-form-section {
+    position: static;
+  }
+
+  .chatbot-header h1 {
+    font-size: 2rem;
+  }
+
+  .chatbot-header {
+    margin-bottom: 2rem;
+  }
+
+  .criteria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .influencers-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .chatbot-container {
+    padding: 1rem;
+  }
+
+  .chatbot-form-section,
+  .results-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .chatbot-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .chatbot-header p {
+    font-size: 0.95rem;
+  }
+
+  .campaign-textarea {
+    min-height: 120px;
+  }
+
+  .influencers-grid {
+    grid-template-columns: 1fr;
+  }
+}

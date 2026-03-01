@@ -7,6 +7,7 @@ import LoginPage from './pages/LoginPage.jsx';
 import SignupPage from './pages/SignupPage.jsx';
 import BrandDashboardPage from './pages/BrandDashboardPage.jsx';
 import InfluencerDashboardPage from './pages/InfluencerDashboardPage.jsx';
+import ChatBotPage from './pages/ChatBotPage.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
 import './App.css';
 
@@ -19,6 +20,14 @@ function App() {
         <Route path="influencers/:id" element={<InfluencerDetailPage />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
+        <Route
+          path="ai-matcher"
+          element={
+            <RequireAuth role="brand">
+              <ChatBotPage />
+            </RequireAuth>
+          }
+        />
         <Route
           path="dashboard/brand"
           element={

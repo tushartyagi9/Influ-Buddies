@@ -2,6 +2,7 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import Influencer from '../models/Influencer.js';
 import { authMiddleware } from '../middleware/auth.js';
 
 const router = express.Router();
@@ -18,7 +19,7 @@ function signToken(user) {
 
 router.post('/register', async (req, res) => {
   try {
-    const { name, email, password, role, location, bio } = req.body;
+    const { name, email, password, role, location, bio, niche, platforms, gender, followerCount, engagementRate, socialLink, imageUrl } = req.body;
     if (!name || !email || !password || !role) {
       return res.status(400).json({ message: 'Missing required fields' });
     }
@@ -38,6 +39,26 @@ router.post('/register', async (req, res) => {
       location,
       bio
     });
+
+    // If user is an influencer, create influencer profile
+    if (role === 'influencer') {
+      if (!niche) {
+        return res.status(400).json({ message: 'Niche is required for influencers' });
+      }
+      
+      await Influencer.create({
+        name,
+        niche,
+        platforms: platforms || [],
+        location,
+        gender,
+        imageUrl,
+        socialLink,
+        followerCount: followerCount || 0,
+        engagementRate: engagementRate || 0,
+        owner: user._id
+      });
+    }
 
     const token = signToken(user);
 

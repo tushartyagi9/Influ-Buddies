@@ -1,12 +1,13 @@
+import './config/env.js';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import authRoutes from './routes/auth.js';
 import influencerRoutes from './routes/influencers.js';
 import userRoutes from './routes/users.js';
+import chatbotRoutes from './routes/chatbot.js';
 import Influencer from './models/Influencer.js';
 import defaultInfluencers from './utils/defaultInfluencers.js';
-import './config/env.js';
 import { connectDB } from './config/db.js';
 
 const app = express();
@@ -24,6 +25,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/influencers', influencerRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/chatbot', chatbotRoutes);
 
 async function start() {
   try {
