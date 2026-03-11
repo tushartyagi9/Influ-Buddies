@@ -2,6 +2,8 @@ import './config/env.js';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import authRoutes from './routes/auth.js';
 import influencerRoutes from './routes/influencers.js';
 import userRoutes from './routes/users.js';
@@ -13,6 +15,9 @@ import Opportunity from './models/Opportunity.js';
 import defaultInfluencers from './utils/defaultInfluencers.js';
 import defaultOpportunities from './utils/defaultOpportunities.js';
 import { connectDB } from './config/db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -32,6 +37,13 @@ app.use('/api/users', userRoutes);
 app.use('/api/chatbot', chatbotRoutes);
 app.use('/api/opportunities', opportunityRoutes);
 app.use('/api/messages', messageRoutes);
+
+// ── Serve React client build in production ──
+const clientDist = path.join(__dirname, '..', 'client', 'dist');
+app.use(express.static(clientDist));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(clientDist, 'index.html'));
+});
 
 async function start() {
   try {

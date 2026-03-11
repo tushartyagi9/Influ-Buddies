@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: influ-buddies
+    runtime: node
+    plan: free
+    buildCommand: npm run render-build
+    startCommand: cd server && node index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: MONGODB_URI
+        sync: false        # Set manually in Render dashboard
+      - key: JWT_SECRET
+        generateValue: true
+      - key: PORT
+        value: 10000
