@@ -1,37 +1,42 @@
 .browse-page h2 {
-  margin-bottom: 0.75rem;
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 .browse-page .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 1rem;
-}
-
-.error {
-  color: #f97373;
-  font-size: 0.9rem;
 }
 
 .category-chips {
   display: flex;
   gap: 0.5rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
 }
 
 .chip {
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
   background: transparent;
-  color: #e5e7eb;
-  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 500;
   cursor: pointer;
+  transition: all 0.2s;
+}
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
 }
 
 .chip--active {
-  border-color: #f97316;
-  background: rgba(249, 115, 22, 0.1);
+  border-color: var(--accent);
+  background: var(--accent-subtle);
+  color: var(--accent);
 }
 

@@ -1,60 +1,108 @@
-# Influ-Buddies (MERN)
+# Influ-Buddies
 
-Influ-Buddies is a lightweight full-stack web app that connects brands with social media influencers for collaborations. Brands can browse curated influencer profiles, filter by niche/location/platform, and visit social links. Influencers can manage their profiles.
+> An Instagram-inspired influencer marketing platform built with the MERN stack. Brands discover, connect with, and hire social-media influencers — all from one place.
 
-## Tech stack
+![React](https://img.shields.io/badge/React-19.2-61DAFB?logo=react&logoColor=white)
+![Express](https://img.shields.io/badge/Express-5.2-000?logo=express&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%209-47A248?logo=mongodb&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7.3-646CFF?logo=vite&logoColor=white)
 
-- **Frontend**: React (Vite), React Router, CSS
-- **Backend**: Node.js, Express, MongoDB (Mongoose), JWT auth
+---
 
-## Project structure
+## Features
 
-- `client/` – React SPA consuming the API
-- `server/` – Express API and MongoDB models
+| Area | What you get |
+|------|-------------|
+| **Auth** | Email/password signup & login with sliding Brand / Influencer role toggle. JWT-protected routes. |
+| **Browse Influencers** | Filter by niche, location, platform, gender, follower count, and name search. |
+| **Influencer Detail** | Full profile with stats, bio, social links, and a **Message** button. |
+| **Reels** | Instagram Reels-style vertical card browser — swipe or arrow-key through influencer profiles. |
+| **Messages / DM** | Real-time-style conversation list + chat interface between brands and influencers. |
+| **Brand Dashboard** | Three tabs: **Create Ad** (post opportunities), **My Ads** (manage & review applications), **Saved** (favourites). |
+| **Influencer Dashboard** | Three tabs: **Browse Opportunities**, **My Applications** (track status), **My Profile**. |
+| **AI Chatbot** | `/ai-matcher` — natural-language influencer recommendations powered by a helper utility. |
+| **Responsive UI** | Left sidebar navigation, Instagram-inspired light theme with CSS custom properties, mobile-friendly. |
 
-## Getting started
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Frontend | React 19, React Router 7, Vite 7, CSS custom properties |
+| Backend | Node.js, Express 5, Mongoose 9 |
+| Database | MongoDB |
+| Auth | JWT + bcrypt |
+
+---
+
+## Project Structure
+
+```
+checkers-1/
+├── client/                 # React SPA (Vite)
+│   └── src/
+│       ├── api/            # API client helpers
+│       ├── components/     # Layout, FilterBar, InfluencerCard, RequireAuth
+│       ├── context/        # AuthContext, FavoritesContext
+│       └── pages/          # All page components + CSS
+├── server/                 # Express REST API
+│   ├── config/             # DB connection, env vars
+│   ├── middleware/         # JWT auth middleware
+│   ├── models/             # User, Influencer, Opportunity, Application, Message
+│   ├── routes/             # auth, influencers, opportunities, messages, chatbot, users
+│   ├── scripts/            # seedInfluencers
+│   └── utils/              # chatbotHelper, defaultInfluencers, defaultOpportunities
+└── package.json            # Root scripts (dev, build, start)
+```
+
+---
+
+## Getting Started
 
 ### Prerequisites
 
-- Node.js (LTS)
-- MongoDB instance (local or cloud)
+- **Node.js** ≥ 18 (LTS)
+- **MongoDB** running locally or a cloud URI (e.g. MongoDB Atlas)
 
-### 1. Install dependencies
+### 1. Clone & install
 
 ```bash
-npm install              # root tooling
+git clone https://github.com/tushart99/checkers.git
+cd checkers-1
+
+# Install root, server, and client dependencies
+npm install
 cd server && npm install
 cd ../client && npm install
+cd ..
 ```
 
 ### 2. Configure environment
 
-Create `server/.env`:
+Create **`server/.env`**:
 
-```bash
-MONGODB_URI=mongodb://localhost:27017/influ_buddies
-JWT_SECRET=replace_me_with_a_long_secret
-PORT=5000
+```env
+MONGODB_URI=mongodb://127.0.0.1:27017/influ_buddies
+JWT_SECRET=replace_me_with_a_long_random_secret
+PORT=5050
 ```
 
-Optionally create `client/.env`:
+Optionally create **`client/.env`**:
 
-```bash
-VITE_API_URL=http://localhost:5000
+```env
+VITE_API_URL=http://localhost:5050
 ```
 
-### 3. Seed sample influencers
-
-Place your JSON files (e.g. `beauty.json`, `dance.json`, `Fashion.json`) in `server/data/`, matching the shape from your original static project. Then run:
+### 3. Seed sample data
 
 ```bash
-cd server
-npm run seed
+cd server && node scripts/seedInfluencers.js
 ```
 
-This will clear and repopulate the `Influencer` collection.
+This populates the database with sample influencers and opportunities.
 
-### 4. Run the app in development
+### 4. Run in development
 
 From the repo root:
 
@@ -62,20 +110,47 @@ From the repo root:
 npm run dev
 ```
 
-- Client: `http://localhost:5173` (Vite default)
-- API: `http://localhost:5000`
+| Service | URL |
+|---------|-----|
+| Frontend (Vite) | `http://localhost:5173` |
+| Backend API | `http://localhost:5050` |
 
-## Core features
+---
 
-- **Auth**
-  - Email/password signup and login.
-  - Roles: `brand` and `influencer`.
-  - JWT-based auth with protected routes.
+## API Routes
 
-- **Influencer browsing**
-  - `/browse` page with filters: niche, location, platform, gender, name search.
-  - `/influencers/:id` detail page with profile info and social links.
+| Method | Endpoint | Auth | Description |
+|--------|----------|------|-------------|
+| POST | `/api/auth/register` | — | Register (brand or influencer) |
+| POST | `/api/auth/login` | — | Login, returns JWT |
+| GET | `/api/auth/me` | ✔ | Current user profile |
+| GET | `/api/influencers` | — | List / filter influencers |
+| GET | `/api/influencers/:id` | — | Influencer detail |
+| GET | `/api/opportunities` | — | List opportunities |
+| POST | `/api/opportunities` | ✔ Brand | Create opportunity |
+| DELETE | `/api/opportunities/:id` | ✔ Brand | Delete own opportunity |
+| POST | `/api/opportunities/:id/apply` | ✔ Influencer | Apply to opportunity |
+| GET | `/api/opportunities/:id/applications` | ✔ Brand | View applications |
+| PATCH | `/api/opportunities/applications/:id` | ✔ Brand | Accept / reject |
+| GET | `/api/messages/conversations` | ✔ | List conversations |
+| GET | `/api/messages/:partnerId` | ✔ | Message history |
+| POST | `/api/messages` | ✔ | Send a message |
+| POST | `/api/chatbot` | ✔ Brand | AI influencer matcher |
 
-- **Dashboards**
-  - Brand and influencer dashboards with role-based access (placeholders for future enhancements).
+---
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start both client & server in parallel |
+| `npm run build` | Production build of the client |
+| `npm start` | Start the production server |
+| `cd server && node scripts/seedInfluencers.js` | Seed the database |
+
+---
+
+## License
+
+ISC
 

@@ -1,108 +1,225 @@
-// Free keyword-based analyzer - no API calls needed
-function parseKeywords(text) {
-  const lowerText = text.toLowerCase();
-  
-  // Define keywords for different categories
-  const budgetKeywords = {
-    high: /(\$\d+000|\d{4,}|high.*budget|large.*budget|substantial|significant)/gi,
-    medium: /(\$\d{3}0{2}|\d{3,4}(?!000)|medium.*budget|moderate)/gi,
-    low: /(\$\d{1,3}0{2}|low.*budget|small.*budget|tight.*budget)/gi
-  };
+// ===== Enhanced AI Chatbot Helper – keyword parser + scoring + smart responses =====
 
-  const nicheKeywords = {
-    'fitness': /fitness|gym|workout|exercise|health|wellness|sports|athletic/gi,
-    'beauty': /beauty|cosmetics|makeup|skincare|hair|fashion|style|glamour|makeup artist/gi,
-    'tech': /technology|tech|gadget|software|app|digital|programming|code|startup/gi,
-    'food': /food|cook|recipe|restaurant|dining|culinary|chef|beverage|drink/gi,
-    'travel': /travel|tourism|destination|hotel|adventure|explore|wanderlust|trip/gi,
-    'lifestyle': /lifestyle|daily life|routine|living|home|interior|design|diy/gi,
-    'entertainment': /entertainment|gaming|music|movies|film|tv|comedy|streaming/gi,
-    'education': /education|learning|course|tutorial|skills|training|teach|academic/gi,
-    'sustainability': /sustainability|eco|environment|green|organic|sustainable|carbon/gi,
-  };
+/* ---------- 1. KEYWORD DICTIONARIES ---------- */
 
-  const platformKeywords = {
-    instagram: /instagram|ig|insta/gi,
-    tiktok: /tiktok|tik tok|short video/gi,
-    youtube: /youtube|yt/gi,
-    twitter: /twitter|x|tweet|social media/gi,
-    linkedin: /linkedin|professional|business network/gi,
-    facebook: /facebook|fb/gi,
-  };
+const NICHE_KEYWORDS = {
+  fitness:        /\b(fitness|gym|workout|exercise|sports|athletic|training|bodybuilding|yoga|pilates|crossfit|marathon|running)\b/gi,
+  beauty:         /\b(beauty|cosmetics|makeup|skincare|hair|skin\s*care|hair\s*care|grooming|nail|lash|glow|concealer)\b/gi,
+  fashion:        /\b(fashion|style|apparel|clothing|outfit|wardrobe|streetwear|luxury.*fashion|couture|designer)\b/gi,
+  tech:           /\b(tech|technology|gadget|software|app|digital|programming|startup|saas|ai|machine\s*learning|hardware|electronics)\b/gi,
+  food:           /\b(food|cook|recipe|restaurant|dining|culinary|chef|beverage|baking|vegan|keto|delivery)\b/gi,
+  travel:         /\b(travel|tourism|destination|hotel|adventure|explore|wanderlust|trip|vacation|backpack|flight)\b/gi,
+  lifestyle:      /\b(lifestyle|daily\s*life|routine|living|home|interior|design|diy|minimal|hygge|self[\s-]?care)\b/gi,
+  entertainment:  /\b(entertainment|gaming|music|movies?|film|tv|comedy|streaming|podcast|vlog|anime|series)\b/gi,
+  education:      /\b(education|learning|courses?|tutorial|skills?|training|teach|academic|study|edtech|school)\b/gi,
+  sustainability: /\b(sustainability|eco|environment|green|organic|sustainable|carbon|recycle|zero[\s-]?waste|ethical)\b/gi,
+  wellness:       /\b(wellness|mental\s*health|meditation|mindfulness|therapy|healing|holistic|well[\s-]?being)\b/gi,
+  music:          /\b(music|musician|singer|band|hip[\s-]?hop|rap|jazz|pop|rock|edm|spotify|soundcloud)\b/gi,
+  gaming:         /\b(gaming|gamer|esports|twitch|steam|playstation|xbox|nintendo|rpg|fps|mmorpg)\b/gi,
+  parenting:      /\b(parent|mom|dad|baby|toddler|kids|family|child|maternity|newborn)\b/gi,
+  finance:        /\b(finance|invest|money|crypto|stock|trading|budget|wealth|fintech|banking|savings)\b/gi,
+  pets:           /\b(pet|dog|cat|puppy|kitten|animal|vet|rescue)\b/gi,
+};
 
-  const engagementKeywords = {
-    high: /high.*engagement|strong.*engagement|active|engaged|interactive/gi,
-    medium: /medium.*engagement|moderate engagement/gi,
-    low: /low.*engagement|casual/gi,
-  };
+const PLATFORM_KEYWORDS = {
+  instagram: /\b(instagram|ig|insta)\b/gi,
+  tiktok:    /\b(tiktok|tik[\s-]?tok|short[\s-]?video|reels)\b/gi,
+  youtube:   /\b(youtube|yt|vlog)\b/gi,
+  twitter:   /\b(twitter|tweet|x\.com)\b/gi,
+  linkedin:  /\b(linkedin|professional\s*network)\b/gi,
+  facebook:  /\b(facebook|fb)\b/gi,
+};
 
-  // Extract niches
-  const detectedNiches = [];
-  for (const [niche, regex] of Object.entries(nicheKeywords)) {
-    if (regex.test(lowerText)) {
-      detectedNiches.push(niche);
-    }
+const LOCATION_MAP = {
+  'us':             'US',
+  'usa':            'US',
+  'united states':  'US',
+  'america':        'US',
+  'uk':             'UK',
+  'united kingdom': 'UK',
+  'britain':        'UK',
+  'england':        'UK',
+  'india':          'India',
+  'canada':         'Canada',
+  'australia':      'Australia',
+  'germany':        'Germany',
+  'france':         'France',
+  'japan':          'Japan',
+  'singapore':      'Singapore',
+  'dubai':          'Dubai',
+  'uae':            'Dubai',
+  'brazil':         'Brazil',
+  'mexico':         'Mexico',
+  'south korea':    'South Korea',
+  'korea':          'South Korea',
+  'indonesia':      'Indonesia',
+  'nigeria':        'Nigeria',
+  'south africa':   'South Africa',
+  'spain':          'Spain',
+  'italy':          'Italy',
+  'china':          'China',
+  'russia':         'Russia',
+  'turkey':         'Turkey',
+  'new york':       'US',
+  'los angeles':    'US',
+  'london':         'UK',
+  'mumbai':         'India',
+  'delhi':          'India',
+  'toronto':        'Canada',
+  'sydney':         'Australia',
+  'berlin':         'Germany',
+  'paris':          'France',
+  'tokyo':          'Japan',
+};
+
+/* ---------- 2. SMART KEYWORD PARSER ---------- */
+
+export function parseKeywords(text) {
+  const lower = text.toLowerCase();
+
+  // --- Niches (with match-count scoring) ---
+  const nicheScores = {};
+  for (const [niche, regex] of Object.entries(NICHE_KEYWORDS)) {
+    const matches = lower.match(regex);
+    if (matches) nicheScores[niche] = matches.length;
   }
+  // Sort by frequency, take top niches
+  const sortedNiches = Object.entries(nicheScores)
+    .sort((a, b) => b[1] - a[1])
+    .map(([n]) => n);
+  const niches = sortedNiches.length ? sortedNiches.slice(0, 3) : ['general'];
 
-  // Extract platforms
-  const detectedPlatforms = [];
-  for (const [platform, regex] of Object.entries(platformKeywords)) {
-    if (regex.test(lowerText)) {
-      detectedPlatforms.push(platform);
-    }
+  // --- Platforms ---
+  const platforms = [];
+  for (const [platform, regex] of Object.entries(PLATFORM_KEYWORDS)) {
+    if (regex.test(lower)) platforms.push(platform);
   }
+  // Default: if user mentions "social media" generically or nothing
+  if (!platforms.length) platforms.push('instagram');
 
-  // Extract engagement level
-  let engagementLevel = 'medium';
-  for (const [level, regex] of Object.entries(engagementKeywords)) {
-    if (regex.test(lowerText)) {
-      engagementLevel = level;
-      break;
-    }
-  }
-
-  // Extract budget
+  // --- Budget – try to find exact dollar amount first ---
   let budget = 'not specified';
-  for (const [level, regex] of Object.entries(budgetKeywords)) {
-    if (regex.test(lowerText)) {
-      budget = level === 'high' ? '$5000+' : level === 'medium' ? '$1000-5000' : '$500-1000';
+  let budgetNumeric = null;
+  const dollarMatch = text.match(/\$\s?([\d,]+(?:\.\d+)?)\s*(?:k|K)?/);
+  const numberKMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:k|K)\s*(?:budget|dollar|usd)?/i);
+  const plainNumberBudget = text.match(/budget\s*(?:of|around|is|:)?\s*\$?\s*([\d,]+)/i);
+
+  if (dollarMatch) {
+    let val = parseFloat(dollarMatch[1].replace(/,/g, ''));
+    if (/k|K/.test(dollarMatch[0])) val *= 1000;
+    budgetNumeric = val;
+  } else if (numberKMatch) {
+    budgetNumeric = parseFloat(numberKMatch[1]) * 1000;
+  } else if (plainNumberBudget) {
+    budgetNumeric = parseFloat(plainNumberBudget[1].replace(/,/g, ''));
+  }
+
+  if (budgetNumeric !== null) {
+    budget = `$${budgetNumeric.toLocaleString()}`;
+  } else if (/high.*budget|large.*budget|big.*budget|substantial|significant|premium/i.test(lower)) {
+    budget = '$5,000+';
+    budgetNumeric = 5000;
+  } else if (/medium.*budget|moderate|reasonable/i.test(lower)) {
+    budget = '$1,000–5,000';
+    budgetNumeric = 3000;
+  } else if (/low.*budget|small.*budget|tight.*budget|limited|cheap|affordable/i.test(lower)) {
+    budget = '$500–1,000';
+    budgetNumeric = 750;
+  }
+
+  // --- Engagement level ---
+  let engagementLevel = 'any';
+  if (/high.*engage|strong.*engage|very.*engage|active.*audience|interactive|viral/i.test(lower)) {
+    engagementLevel = 'high';
+  } else if (/medium.*engage|moderate.*engage|decent.*engage|good.*engage/i.test(lower)) {
+    engagementLevel = 'medium';
+  } else if (/low.*engage|casual/i.test(lower)) {
+    engagementLevel = 'low';
+  }
+
+  // --- Follower tier ---
+  let followerTier = null;
+  if (/\b(nano|very\s*small)\b/i.test(lower)) {
+    followerTier = { label: 'nano (1K–10K)', min: 1000, max: 10000 };
+  } else if (/\b(micro)\b/i.test(lower)) {
+    followerTier = { label: 'micro (10K–100K)', min: 10000, max: 100000 };
+  } else if (/\b(mid[\s-]?tier|mid[\s-]?level)\b/i.test(lower)) {
+    followerTier = { label: 'mid-tier (100K–500K)', min: 100000, max: 500000 };
+  } else if (/\b(macro|big|large|major)\b/i.test(lower) && /\b(influencer|account|creator|follower)\b/i.test(lower)) {
+    followerTier = { label: 'macro (500K–1M)', min: 500000, max: 1000000 };
+  } else if (/\b(mega|celebrity|huge|massive)\b/i.test(lower)) {
+    followerTier = { label: 'mega (1M+)', min: 1000000, max: Infinity };
+  } else if (/high.*follower|big.*following|large.*following|lots.*follower/i.test(lower)) {
+    followerTier = { label: 'macro (500K+)', min: 500000, max: Infinity };
+  }
+
+  // --- Location ---
+  let location = null;
+  for (const [keyword, mapped] of Object.entries(LOCATION_MAP)) {
+    if (new RegExp(`\\b${keyword}\\b`, 'i').test(lower)) {
+      location = mapped;
       break;
     }
   }
 
-  // Extract location
-  const locationMatch = lowerText.match(/\b(us|usa|united states|uk|india|canada|australia|germany|france|japan|singapore|dubai|australia)\b/i);
-  const location = locationMatch ? locationMatch[1] : null;
-
-  // Extract campaign type
+  // --- Campaign type ---
   let campaignType = 'general promotion';
-  if (/launch|new.*product|product.*launch|release/.test(lowerText)) {
+  if (/launch|new\s*product|product\s*launch|release|drop/i.test(lower)) {
     campaignType = 'product launch';
-  } else if (/awareness|brand awareness|brand.*building/.test(lowerText)) {
+  } else if (/awareness|brand\s*building|reach|visibility/i.test(lower)) {
     campaignType = 'brand awareness';
-  } else if (/promotion|promote|advertise|advertisement/.test(lowerText)) {
+  } else if (/promot|advertis|marketing\s*campaign/i.test(lower)) {
     campaignType = 'product promotion';
-  } else if (/collaboration|partnership|collab/.test(lowerText)) {
+  } else if (/collaborat|partner|collab|ambassador|brand\s*deal/i.test(lower)) {
     campaignType = 'collaboration';
+  } else if (/ugc|user[\s-]?generated|content\s*creat/i.test(lower)) {
+    campaignType = 'UGC / content creation';
+  } else if (/review|unbox|test/i.test(lower)) {
+    campaignType = 'product review';
+  } else if (/event|live|webinar|stream/i.test(lower)) {
+    campaignType = 'event / live stream';
+  }
+
+  // --- Gender preference ---
+  let gender = null;
+  if (/\b(female|women|woman|she|her)\b/i.test(lower)) gender = 'female';
+  else if (/\b(male|men|man|he|him)\b/i.test(lower)) gender = 'male';
+
+  // --- Number of influencers requested ---
+  let requestedCount = null;
+  const countMatch = lower.match(/(\d+)\s*(?:[-–to]+\s*(\d+))?\s*influencer/);
+  if (countMatch) {
+    requestedCount = countMatch[2] ? parseInt(countMatch[2]) : parseInt(countMatch[1]);
   }
 
   return {
     budget,
-    niches: detectedNiches.length > 0 ? detectedNiches : ['general'],
-    platforms: detectedPlatforms.length > 0 ? detectedPlatforms : ['instagram'],
+    budgetNumeric,
+    niches,
+    platforms,
     engagementLevel,
+    followerTier,
     campaignType,
     location,
+    gender,
+    requestedCount,
     targetAudience: 'general audience',
-    additionalRequirements: []
   };
 }
 
-export async function analyzeMarketingRequest(brandRequest) {
+/* ---------- 3. ANALYSE MARKETING REQUEST ---------- */
+
+export async function analyzeMarketingRequest(brandRequest, conversationContext = '') {
   try {
-    console.log('Analyzing campaign request (free parser):', brandRequest);
-    const criteria = parseKeywords(brandRequest);
-    console.log('Extracted criteria:', criteria);
+    console.log('Analyzing campaign request:', brandRequest);
+
+    // Combine current request with conversation context for better understanding
+    const fullText = conversationContext
+      ? `${conversationContext}\n---\n${brandRequest}`
+      : brandRequest;
+
+    const criteria = parseKeywords(fullText);
+    console.log('Extracted criteria:', JSON.stringify(criteria, null, 2));
     return criteria;
   } catch (error) {
     console.error('Error analyzing marketing request:', error.message);
@@ -110,66 +227,154 @@ export async function analyzeMarketingRequest(brandRequest) {
   }
 }
 
+/* ---------- 4. SCORE & RANK INFLUENCERS ---------- */
+
+export function scoreInfluencer(influencer, criteria) {
+  let score = 0;
+  const reasons = [];
+
+  // Niche match (highest weight)
+  if (criteria.niches.includes(influencer.niche?.toLowerCase())) {
+    score += 40;
+    reasons.push(`Niche match: ${influencer.niche}`);
+  }
+
+  // Platform overlap
+  const platformOverlap = (influencer.platforms || []).filter((p) =>
+    criteria.platforms.includes(p.toLowerCase())
+  );
+  if (platformOverlap.length) {
+    score += 10 * platformOverlap.length;
+    reasons.push(`Platform match: ${platformOverlap.join(', ')}`);
+  }
+
+  // Engagement fit
+  const eng = influencer.engagementRate || 0;
+  if (criteria.engagementLevel === 'high' && eng >= 5) {
+    score += 20;
+    reasons.push('High engagement');
+  } else if (criteria.engagementLevel === 'medium' && eng >= 2 && eng < 8) {
+    score += 15;
+    reasons.push('Good engagement');
+  } else if (criteria.engagementLevel === 'any') {
+    score += 10;
+  } else if (eng > 0) {
+    score += 5;
+  }
+
+  // Follower tier fit
+  const fc = influencer.followerCount || 0;
+  if (criteria.followerTier) {
+    if (fc >= criteria.followerTier.min && fc <= criteria.followerTier.max) {
+      score += 15;
+      reasons.push(`Follower tier match: ${criteria.followerTier.label}`);
+    }
+  } else {
+    // Default: reward decent following
+    if (fc > 10000) score += 5;
+    if (fc > 100000) score += 5;
+  }
+
+  // Location match
+  if (criteria.location && influencer.location) {
+    if (influencer.location.toLowerCase().includes(criteria.location.toLowerCase())) {
+      score += 10;
+      reasons.push(`Location match: ${influencer.location}`);
+    }
+  }
+
+  // Gender match
+  if (criteria.gender && influencer.gender) {
+    if (influencer.gender.toLowerCase() === criteria.gender.toLowerCase()) {
+      score += 5;
+      reasons.push('Gender preference match');
+    }
+  }
+
+  return { score, reasons };
+}
+
+/* ---------- 5. SMART RESPONSE GENERATION ---------- */
+
 export async function generateInfluencerRecommendationResponse(criteria, influencersData) {
   try {
-    console.log('Generating response for', influencersData.length, 'influencers');
-    
-    // Build influencer list with their stats
-    let influencerList = '';
-    if (influencersData.length > 0) {
-      influencerList = influencersData.map((inf, idx) => {
-        return `${idx + 1}. **${inf.name}** - ${inf.niche.toUpperCase()}\n   📱 Platforms: ${inf.platforms.join(', ')}\n   👥 Followers: ${(inf.followerCount / 1000).toFixed(0)}K\n   📊 Engagement: ${inf.engagementRate}%\n   📍 Location: ${inf.location}`;
-      }).join('\n\n');
+    const total = influencersData.length;
+
+    // Build concise influencer summaries
+    const influencerLines = influencersData.slice(0, 8).map((inf, idx) => {
+      const fc = inf.followerCount
+        ? inf.followerCount >= 1_000_000
+          ? `${(inf.followerCount / 1_000_000).toFixed(1)}M`
+          : `${(inf.followerCount / 1_000).toFixed(0)}K`
+        : 'N/A';
+      return `${idx + 1}. ${inf.name} — ${inf.niche} | ${(inf.platforms || []).join(', ')} | ${fc} followers | ${inf.engagementRate ?? '?'}% engagement | ${inf.location || 'N/A'}${inf._matchScore ? ` | Score: ${inf._matchScore}` : ''}`;
+    }).join('\n');
+
+    // Build budget-aware tips
+    let budgetTip = '';
+    if (criteria.budgetNumeric) {
+      if (criteria.budgetNumeric < 1000) {
+        budgetTip = 'With your budget range, nano and micro-influencers (1K–50K followers) offer the best ROI — they tend to have higher engagement and are more affordable per post.';
+      } else if (criteria.budgetNumeric < 5000) {
+        budgetTip = 'Your budget is well-suited for micro to mid-tier influencers. Consider splitting it across 2–3 creators to diversify reach.';
+      } else if (criteria.budgetNumeric < 20000) {
+        budgetTip = 'With this budget, you can work with mid-tier to macro influencers. A mix of 3–5 creators across different platforms will maximise both reach and engagement.';
+      } else {
+        budgetTip = 'Your premium budget opens up macro and mega influencer partnerships. Consider a hero + supporting cast strategy: one big name for reach plus several mid-tier creators for authentic engagement.';
+      }
     }
 
-    // Get alternative niches
-    const nicheOptions = [
-      'fitness', 'beauty', 'tech', 'food', 'travel', 
-      'lifestyle', 'entertainment', 'education', 'sustainability', 'music', 'gaming', 'wellness'
-    ];
-    const currentNiches = criteria.niches;
-    const alternatives = nicheOptions.filter(n => !currentNiches.includes(n)).slice(0, 4);
+    // Context-specific suggestions
+    const suggestions = [];
 
+    if (!criteria.location) {
+      suggestions.push('You didn\'t specify a location. Tell me if you\'re targeting a specific country or region — I can filter for local influencers.');
+    }
+
+    if (criteria.niches.includes('general')) {
+      suggestions.push('I wasn\'t sure about the niche. Try mentioning specific topics like "fitness", "beauty", "tech", "food", "travel", "gaming", or "fashion".');
+    }
+
+    if (criteria.platforms.length === 1 && criteria.platforms[0] === 'instagram') {
+      suggestions.push('I defaulted to Instagram since no platform was specified. Let me know if you want TikTok, YouTube, or other platform influencers.');
+    }
+
+    if (criteria.engagementLevel === 'any') {
+      suggestions.push('No engagement preference detected — I included all levels. Say "high engagement" if you want creators with 5%+ rates.');
+    }
+
+    // Compose the final response
     let response = '';
 
-    if (influencersData.length > 0) {
-      response = `
-Awesome! I found ${influencersData.length} influencer(s) matching your ${criteria.niches.join(', ')} campaign on ${criteria.platforms.join(' & ')}:
+    if (total > 0) {
+      response = `Here are the top ${Math.min(total, 8)} matches for your ${criteria.campaignType} campaign targeting ${criteria.niches.join(' & ')} on ${criteria.platforms.join(', ')}:\n\n${influencerLines}`;
 
-${influencerList}
+      if (budgetTip) {
+        response += `\n\nBudget Insight: ${budgetTip}`;
+      }
 
----
+      if (suggestions.length) {
+        response += `\n\nTo refine your results:\n${suggestions.map((s) => `• ${s}`).join('\n')}`;
+      }
 
-**Want to explore more options?**
-
-You can also look at these niches:
-• ${alternatives.join('\n• ')}
-
-**Quick questions to help you narrow down:**
-1. Do you prefer micro-influencers (under 500K followers) or bigger accounts?
-2. Any specific platform you want to focus on (Instagram, YouTube, TikTok)?
-3. Should we look at different engagement levels (higher vs lower)?
-4. Any particular location preference?
-5. Want to explore a different niche I suggested above?
-
-Just let me know what works best for you! 😊
-      `;
+      response += '\n\nWant me to narrow things down? You can say things like "show only micro-influencers", "focus on TikTok", or "only US-based creators".';
     } else {
-      response = `
-Hmm, I couldn't find influencers in the "${criteria.niches.join(', ')}" niche right now. But don't worry! Here are some similar niches you might want to explore:
+      const alternativeNiches = Object.keys(NICHE_KEYWORDS)
+        .filter((n) => !criteria.niches.includes(n))
+        .slice(0, 5);
 
-• ${alternatives.join('\n• ')}
+      response = `I couldn't find influencers matching all your criteria (${criteria.niches.join(', ')} on ${criteria.platforms.join(', ')}${criteria.location ? ` in ${criteria.location}` : ''}).`;
 
-**Let's find the right match for you!**
+      response += '\n\nHere are some things you can try:\n';
+      response += '• Broaden the niche — related niches: ' + alternativeNiches.join(', ') + '\n';
+      response += '• Remove the location filter\n';
+      response += '• Try different platforms\n';
 
-Tell me:
-1. Would you like to explore one of these alternative niches?
-2. Are you flexible with your budget?
-3. Do you have a specific platform in mind (Instagram, YouTube, TikTok)?
-4. What's your main goal - reach, engagement, or brand awareness?
+      if (budgetTip) {
+        response += `\nBudget Insight: ${budgetTip}`;
+      }
 
-I can help you find great influencers once I know more! 💫
-      `;
+      response += '\n\nTell me what to adjust and I\'ll search again!';
     }
 
     return response.trim();

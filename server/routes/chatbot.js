@@ -2,86 +2,120 @@ import express from 'express';
 import Influencer from '../models/Influencer.js';
 import User from '../models/User.js';
 import { authMiddleware } from '../middleware/auth.js';
-import { analyzeMarketingRequest, generateInfluencerRecommendationResponse } from '../utils/chatbotHelper.js';
+import {
+  analyzeMarketingRequest,
+  generateInfluencerRecommendationResponse,
+  scoreInfluencer,
+} from '../utils/chatbotHelper.js';
 
 const router = express.Router();
 
-// POST /api/chatbot/analyze - Analyze brand request and find matching influencers
+// ---------- Helper: build Mongo query from criteria ----------
+function buildQuery(criteria, strict = true) {
+  const query = {};
+
+  if (criteria.niches && criteria.niches.length && !criteria.niches.includes('general')) {
+    query.niche = { $in: criteria.niches };
+  }
+
+  if (strict && criteria.platforms && criteria.platforms.length) {
+    query.platforms = { $in: criteria.platforms };
+  }
+
+  if (strict && criteria.location) {
+    query.location = new RegExp(criteria.location, 'i');
+  }
+
+  if (strict && criteria.gender) {
+    query.gender = criteria.gender;
+  }
+
+  // Engagement threshold
+  if (criteria.engagementLevel === 'high') {
+    query.engagementRate = { $gte: 5 };
+  } else if (criteria.engagementLevel === 'medium') {
+    query.engagementRate = { $gte: 2 };
+  }
+
+  // Follower tier
+  if (strict && criteria.followerTier) {
+    query.followerCount = { $gte: criteria.followerTier.min };
+    if (criteria.followerTier.max !== Infinity) {
+      query.followerCount.$lte = criteria.followerTier.max;
+    }
+  }
+
+  return query;
+}
+
+// ---------- POST /api/chatbot/analyze ----------
 router.post('/analyze', authMiddleware, async (req, res) => {
   try {
-    const { brandRequest } = req.body;
+    const { brandRequest, conversationContext } = req.body;
     const userId = req.user.id;
 
     if (!brandRequest || brandRequest.trim().length === 0) {
       return res.status(400).json({ message: 'Please provide your campaign requirements' });
     }
 
-    // Get user info to check if they are a brand
     const user = await User.findById(userId);
     if (!user || user.role !== 'brand') {
-      return res.status(403).json({ message: 'Only brands can use the chatbot matcher' });
+      return res.status(403).json({ message: 'Only brands can use the AI matcher' });
     }
 
-    console.log('Analyzing campaign request:', brandRequest);
+    // 1. Parse criteria
+    const criteria = await analyzeMarketingRequest(brandRequest, conversationContext);
 
-    // Step 1: Analyze the request to extract criteria
-    const criteria = await analyzeMarketingRequest(brandRequest);
-    console.log('Extracted criteria:', criteria);
+    // 2. Strict query
+    let matched = await Influencer.find(buildQuery(criteria, true)).limit(20);
 
-    // Step 2: Build query based on criteria
-    const query = {};
-    
-    if (criteria.niches && criteria.niches.length > 0) {
-      query.niche = { $in: criteria.niches };
-    }
-    
-    if (criteria.platforms && criteria.platforms.length > 0) {
-      query.platforms = { $in: criteria.platforms };
-    }
-    
-    if (criteria.location && criteria.location !== 'null') {
-      query.location = new RegExp(criteria.location, 'i');
+    // 3. If too few results, relax progressively
+    if (matched.length < 3) {
+      const relaxed = await Influencer.find(buildQuery(criteria, false)).limit(20);
+      // Merge without duplicates
+      const existingIds = new Set(matched.map((m) => m._id.toString()));
+      for (const inf of relaxed) {
+        if (!existingIds.has(inf._id.toString())) matched.push(inf);
+      }
     }
 
-    // Set engagement threshold based on engagement level
-    let minEngagementRate = 0;
-    if (criteria.engagementLevel === 'high') {
-      minEngagementRate = 5;
-    } else if (criteria.engagementLevel === 'medium') {
-      minEngagementRate = 2;
-    }
-    
-    if (minEngagementRate > 0) {
-      query.engagementRate = { $gte: minEngagementRate };
+    // 4. If still empty, show top influencers overall
+    if (matched.length === 0) {
+      matched = await Influencer.find({}).sort({ followerCount: -1 }).limit(10);
     }
 
-    // Step 3: Query influencers from database
-    const matchedInfluencers = await Influencer.find(query).limit(10);
+    // 5. Score & rank
+    const scored = matched.map((inf) => {
+      const infObj = inf.toObject();
+      const { score, reasons } = scoreInfluencer(infObj, criteria);
+      return { ...infObj, _matchScore: score, _matchReasons: reasons };
+    });
+    scored.sort((a, b) => b._matchScore - a._matchScore);
 
-    // Step 4: Generate response with follow-up questions
-    const response = await generateInfluencerRecommendationResponse(criteria, matchedInfluencers);
+    // Limit to requested count or 10
+    const limit = criteria.requestedCount || 10;
+    const topResults = scored.slice(0, limit);
+
+    // 6. Generate response text
+    const suggestion = await generateInfluencerRecommendationResponse(criteria, topResults);
 
     res.json({
       success: true,
-      message: matchedInfluencers.length > 0 
-        ? `Found ${matchedInfluencers.length} influencer(s) for you!` 
-        : 'No exact matches found. Let me suggest alternatives...',
+      message:
+        topResults.length > 0
+          ? `Found ${topResults.length} influencer(s) ranked by relevance to your campaign.`
+          : 'No exact matches — showing top suggestions instead.',
       criteria,
-      influencers: matchedInfluencers,
-      suggestion: response
+      influencers: topResults,
+      suggestion,
     });
-
   } catch (error) {
-    console.error('Chatbot analyze error:', error.message);
-    console.error('Full error:', error);
-    res.status(500).json({ 
-      message: `Error: ${error.message}`,
-      error: error.message 
-    });
+    console.error('Chatbot analyze error:', error);
+    res.status(500).json({ message: `Error: ${error.message}` });
   }
 });
 
-// POST /api/chatbot/quick-search - Quick search without AI analysis
+// ---------- POST /api/chatbot/quick-search ----------
 router.post('/quick-search', async (req, res) => {
   try {
     const { niche, platforms, minEngagement, location } = req.body;
@@ -97,7 +131,7 @@ router.post('/quick-search', async (req, res) => {
     res.json({
       success: true,
       influencers,
-      count: influencers.length
+      count: influencers.length,
     });
   } catch (error) {
     console.error('Quick search error:', error);

@@ -6,8 +6,12 @@ import authRoutes from './routes/auth.js';
 import influencerRoutes from './routes/influencers.js';
 import userRoutes from './routes/users.js';
 import chatbotRoutes from './routes/chatbot.js';
+import opportunityRoutes from './routes/opportunities.js';
+import messageRoutes from './routes/messages.js';
 import Influencer from './models/Influencer.js';
+import Opportunity from './models/Opportunity.js';
 import defaultInfluencers from './utils/defaultInfluencers.js';
+import defaultOpportunities from './utils/defaultOpportunities.js';
 import { connectDB } from './config/db.js';
 
 const app = express();
@@ -26,6 +30,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/influencers', influencerRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/chatbot', chatbotRoutes);
+app.use('/api/opportunities', opportunityRoutes);
+app.use('/api/messages', messageRoutes);
 
 async function start() {
   try {
@@ -35,6 +41,12 @@ async function start() {
     if (count === 0) {
       await Influencer.insertMany(defaultInfluencers);
       console.log(`Seeded ${defaultInfluencers.length} default influencers.`);
+    }
+
+    const oppCount = await Opportunity.estimatedDocumentCount();
+    if (oppCount === 0) {
+      await Opportunity.insertMany(defaultOpportunities);
+      console.log(`Seeded ${defaultOpportunities.length} default opportunities.`);
     }
 
     app.listen(PORT, () => {

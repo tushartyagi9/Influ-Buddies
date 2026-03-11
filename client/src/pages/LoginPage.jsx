@@ -7,6 +7,7 @@ export default function LoginPage() {
   const { login } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+  const [role, setRole] = useState('brand');
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,8 +24,14 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
     try {
-      await login(form);
-      navigate(from, { replace: true });
+      const res = await login(form);
+      if (res.user?.role === 'brand') {
+        navigate('/dashboard/brand');
+      } else if (res.user?.role === 'influencer') {
+        navigate('/dashboard/influencer');
+      } else {
+        navigate(from, { replace: true });
+      }
     } catch (err) {
       setError(err.message || 'Failed to login');
     } finally {
@@ -34,44 +41,35 @@ export default function LoginPage() {
 
   return (
     <div className="auth-container">
-      {/* Left Sidebar - Logo and Info */}
-      <div className="auth-left-sidebar">
-        <div className="logo-section">
-          <h1 className="auth-logo">Influ<br/>Buddies</h1>
-          <p className="auth-tagline">Connect with influencers<br/>that match your brand</p>
-        </div>
-      </div>
-
-      {/* Left Panel - Illustration Space */}
-      <div className="auth-left-panel">
-        <svg viewBox="0 0 300 400" className="auth-illustration">
-          {/* User Circle */}
-          <circle cx="150" cy="100" r="50" fill="#4a90e2" opacity="0.1" />
-          <circle cx="150" cy="100" r="40" fill="none" stroke="#FFD700" strokeWidth="2" />
-          
-          {/* User Icon */}
-          <circle cx="150" cy="85" r="12" fill="#FFD700" />
-          <path d="M 130 105 Q 150 120 170 105" fill="#FFD700" />
-          
-          {/* Decorative Elements */}
-          <circle cx="80" cy="200" r="8" fill="#FFD700" opacity="0.5" />
-          <circle cx="220" cy="250" r="12" fill="#4a90e2" opacity="0.3" />
-          <circle cx="100" cy="320" r="6" fill="#FFD700" opacity="0.6" />
-          
-          {/* Connecting Lines */}
-          <line x1="150" y1="140" x2="150" y2="200" stroke="#FFD700" strokeWidth="2" opacity="0.3" />
-        </svg>
-      </div>
-
-      {/* Right Panel - Form */}
       <div className="auth-right-panel">
         <section className="auth-page">
           <div className="auth-header">
-            <h2>WELCOME BACK</h2>
+            <h2>Welcome back</h2>
             <div className="auth-underline"></div>
           </div>
-          
-          <p className="auth-subtitle">Sign in to your account</p>
+
+          {/* Sliding Toggle */}
+          <div className="role-toggle">
+            <button
+              type="button"
+              className={`toggle-option${role === 'brand' ? ' active' : ''}`}
+              onClick={() => setRole('brand')}
+            >
+              Brand
+            </button>
+            <button
+              type="button"
+              className={`toggle-option${role === 'influencer' ? ' active' : ''}`}
+              onClick={() => setRole('influencer')}
+            >
+              Influencer
+            </button>
+            <div className={`toggle-slider${role === 'influencer' ? ' toggle-right' : ''}`} />
+          </div>
+
+          <p className="auth-subtitle">
+            Sign in as {role === 'brand' ? 'a Brand' : 'an Influencer'}
+          </p>
 
           <form onSubmit={handleSubmit} className="auth-form">
             <label>
@@ -109,18 +107,8 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="auth-social">
-            <p>Or continue with</p>
-            <div className="social-buttons">
-              <button className="social-btn">G</button>
-              <button className="social-btn">f</button>
-              <button className="social-btn">𝕏</button>
-              <button className="social-btn">in</button>
-            </div>
-          </div>
-
           <p className="auth-footer">
-            Don't have an account? <Link to="/signup">Sign up here</Link>
+            Don&apos;t have an account? <Link to="/signup">Sign up here</Link>
           </p>
         </section>
       </div>

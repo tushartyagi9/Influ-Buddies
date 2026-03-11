@@ -1,23 +1,45 @@
+.influencer-detail {
+  padding-top: 1rem;
+}
+
 .influencer-detail .hero {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: flex-start;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
 }
 
 .influencer-detail .hero-image {
   width: 160px;
   height: 160px;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-lg);
   object-fit: cover;
+  flex-shrink: 0;
+}
+
+.influencer-detail h2 {
+  margin: 0 0 0.35rem;
+  font-weight: 700;
+  font-size: 1.5rem;
 }
 
 .influencer-detail .muted {
-  color: #9ca3af;
+  color: var(--text-secondary);
+}
+
+.influencer-detail p {
+  margin: 0.25rem 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
 }
 
 @media (max-width: 768px) {
   .influencer-detail .hero {
     flex-direction: column;
+    padding: 1.25rem;
   }
 }
 

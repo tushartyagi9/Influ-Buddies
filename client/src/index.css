@@ -1,37 +1,236 @@
+/* ===== DESIGN SYSTEM TOKENS – Instagram-inspired ===== */
 :root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* Background palette – warm light theme */
+  --bg-base: #fafafa;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f5f5f5;
+  --bg-hover: #efefef;
+  --bg-sidebar: #ffffff;
+
+  /* Text palette */
+  --text-primary: #262626;
+  --text-secondary: #737373;
+  --text-muted: #a3a3a3;
+  --text-inverse: #ffffff;
+
+  /* Instagram gradient palette */
+  --ig-pink: #E1306C;
+  --ig-purple: #833AB4;
+  --ig-orange: #F77737;
+  --ig-yellow: #FCAF45;
+  --ig-blue: #405DE6;
+  --gradient-primary: linear-gradient(135deg, #833AB4, #E1306C, #F77737);
+  --gradient-warm: linear-gradient(135deg, #F77737, #FCAF45);
+  --gradient-cool: linear-gradient(135deg, #405DE6, #833AB4);
+  --gradient-sunset: linear-gradient(135deg, #E1306C, #F77737, #FCAF45);
+
+  /* Accent palette */
+  --accent: #E1306C;
+  --accent-hover: #c91a57;
+  --accent-subtle: rgba(225, 48, 108, 0.08);
+  --accent-secondary: #405DE6;
+  --accent-secondary-hover: #3451cc;
+  --accent-secondary-subtle: rgba(64, 93, 230, 0.08);
+
+  /* Status */
+  --success: #22c55e;
+  --success-subtle: rgba(34, 197, 94, 0.1);
+  --warning: #f59e0b;
+  --warning-subtle: rgba(245, 158, 11, 0.1);
+  --danger: #ef4444;
+  --danger-subtle: rgba(239, 68, 68, 0.1);
+
+  /* Border & surface */
+  --border: #dbdbdb;
+  --border-strong: #c7c7c7;
+  --border-light: #efefef;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* Sidebar */
+  --sidebar-width: 240px;
+
+  /* Typography */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+
+  font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
-  color: #e5e7eb;
-  background-color: #020617;
+  color: var(--text-primary);
+  background-color: var(--bg-base);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* ===== RESET ===== */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
 }
 
 body {
-  background: radial-gradient(circle at top, #0f172a, #020617 55%);
-  color: inherit;
+  background: var(--bg-base);
+  color: var(--text-primary);
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 button {
   font-family: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== SHARED UTILITY CLASSES ===== */
+
+.primary-link {
+  display: inline-block;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.primary-link:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.gradient-link {
+  display: inline-block;
+  padding: 0.5rem 1.15rem;
+  border-radius: var(--radius-md);
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+.gradient-link:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.secondary-link {
+  color: var(--accent-secondary);
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: color 0.2s;
+}
+.secondary-link:hover {
+  color: var(--accent-secondary-hover);
+}
+
+.primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--accent);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+.primary-btn:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.primary-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.gradient-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: none;
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s;
+}
+.gradient-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+.gradient-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.secondary-btn:hover {
+  border-color: var(--accent);
+  background: var(--accent-subtle);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.88rem;
+}
+
+.success {
+  color: var(--success);
+  font-size: 0.88rem;
+}
+
+.muted {
+  color: var(--text-muted);
+  font-size: 0.88rem;
 }
