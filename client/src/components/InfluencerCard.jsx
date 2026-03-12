@@ -28,7 +28,10 @@ export default function InfluencerCard({ influencer }) {
           <p className="platforms">Platforms: {influencer.platforms.join(', ')}</p>
         ) : null}
         {influencer.followerCount ? (
-          <p className="stats">Followers: {influencer.followerCount.toLocaleString()}</p>
+          <p className="stats">
+            {influencer.followerCount.toLocaleString()} followers
+            {influencer.engagementRate ? ` · ${influencer.engagementRate}% engagement` : ''}
+          </p>
         ) : null}
         <div className="card-actions">
           <Link to={`/influencers/${influencer._id}`} className="primary-link">

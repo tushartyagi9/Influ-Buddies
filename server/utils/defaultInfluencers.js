@@ -6,10 +6,13 @@ const defaultInfluencers = [
     platforms: ['instagram'],
     location: 'Mumbai, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=AishaGlam&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/aishaglam',
     followerCount: 250000,
-    engagementRate: 4.2
+    engagementRate: 4.2,
+    bio: 'Beauty enthusiast sharing everyday glam tutorials, skincare routines, and product reviews. Passionate about making beauty accessible to everyone! 💄✨',
+    reelCaption: 'My everyday glam routine in 60 seconds! 💋 Which look is your fave?',
+    tags: ['skincare', 'makeup', 'tutorials', 'product reviews'],
   },
   {
     name: 'StyleByMia',
@@ -17,10 +20,13 @@ const defaultInfluencers = [
     platforms: ['instagram'],
     location: 'Bengaluru, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=StyleByMia&backgroundColor=c0aede',
     socialLink: 'https://instagram.com/stylebymia',
     followerCount: 320000,
-    engagementRate: 3.8
+    engagementRate: 3.8,
+    bio: 'Fashion stylist & trend forecaster. Curating outfits that blend street style with high fashion. Style is a way to say who you are without speaking.',
+    reelCaption: 'Styling one jacket 5 different ways 🧥🔥 Save this for later!',
+    tags: ['street style', 'outfit ideas', 'trend alerts', 'styling tips'],
   },
   {
     name: 'MakeupWithSarah',
@@ -28,10 +34,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Delhi, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=MakeupSarah&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/makeupwithsarah',
     followerCount: 180000,
-    engagementRate: 5.6
+    engagementRate: 5.6,
+    bio: 'Celebrity makeup artist turned content creator. Sharing professional techniques you can do at home. Drugstore & luxury reviews every week.',
+    reelCaption: 'This $5 concealer trick changed my LIFE 🤯 Full tutorial dropping tomorrow!',
+    tags: ['makeup artist', 'drugstore beauty', 'tutorials', 'celeb looks'],
   },
   {
     name: 'FashionFever',
@@ -39,10 +48,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Pune, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=FashionFever&backgroundColor=b6e3f4',
     socialLink: 'https://instagram.com/fashionfever',
     followerCount: 420000,
-    engagementRate: 4.1
+    engagementRate: 4.1,
+    bio: 'Your daily dose of fashion inspiration! From runway to real way — affordable fashion hauls, lookbooks, and shopping guides every week.',
+    reelCaption: 'Zara haul but make it aesthetic ✨ Everything under ₹2000!',
+    tags: ['hauls', 'lookbooks', 'affordable fashion', 'Zara'],
   },
   {
     name: 'BeautyTips_Priya',
@@ -50,10 +62,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'tiktok'],
     location: 'Hyderabad, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=BeautyPriya&backgroundColor=ffd5dc',
     socialLink: 'https://youtube.com/beautytips',
     followerCount: 560000,
-    engagementRate: 6.2
+    engagementRate: 6.2,
+    bio: 'Dermatologist-approved skincare tips & honest beauty reviews. Science meets beauty on this channel. No filters, just facts! 🧪',
+    reelCaption: 'POV: Your dermatologist rates your skincare routine 🔬 #skincare #dermatologist',
+    tags: ['dermatology', 'skincare science', 'honest reviews', 'no filter'],
   },
 
   // Fitness & Wellness
@@ -63,10 +78,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Pune, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=FitKaran&backgroundColor=d1d4f9',
     socialLink: 'https://instagram.com/fitwithkaran',
     followerCount: 150000,
-    engagementRate: 4.7
+    engagementRate: 4.7,
+    bio: 'Certified personal trainer & nutrition coach. Helping you build your dream physique with science-backed workouts and meal plans. No shortcuts! 💪',
+    reelCaption: '5 exercises you NEED for a bigger chest 🏋️ Save & try this at the gym!',
+    tags: ['personal trainer', 'gym workouts', 'nutrition', 'muscle building'],
   },
   {
     name: 'GymBro_Arjun',
@@ -74,10 +92,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Mumbai, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=GymArjun&backgroundColor=c0aede',
     socialLink: 'https://instagram.com/gymbroarejun',
     followerCount: 280000,
-    engagementRate: 5.3
+    engagementRate: 5.3,
+    bio: 'From skinny to 85kg — sharing my fitness journey and the workouts that actually work. Daily motivation and workout splits!',
+    reelCaption: 'Day 1 vs Day 365 transformation 🔥 Consistency is KEY! #transformation',
+    tags: ['transformation', 'workout splits', 'motivation', 'bodybuilding'],
   },
   {
     name: 'Yoga_Queen_Anjali',
@@ -85,10 +106,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Rishikesh, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=YogaAnjali&backgroundColor=b6e3f4',
     socialLink: 'https://youtube.com/yogaqueen',
     followerCount: 320000,
-    engagementRate: 5.8
+    engagementRate: 5.8,
+    bio: 'Yoga teacher & mindfulness coach from the yoga capital of the world. 10+ years of practice. Join me for daily flows & meditation sessions 🧘‍♀️',
+    reelCaption: '10-minute morning yoga flow for energy ☀️🧘‍♀️ Perfect for beginners!',
+    tags: ['yoga', 'mindfulness', 'meditation', 'morning routine'],
   },
   {
     name: 'MuscleGains_Rahul',
@@ -96,10 +120,13 @@ const defaultInfluencers = [
     platforms: ['instagram'],
     location: 'Gurgaon, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=MuscleRahul&backgroundColor=d1d4f9',
     socialLink: 'https://instagram.com/musclegains',
     followerCount: 450000,
-    engagementRate: 4.5
+    engagementRate: 4.5,
+    bio: 'IFBB Pro athlete & supplement brand owner. Real talk about fitness, steroids debate, and building muscle naturally. 100% transparent with my community.',
+    reelCaption: 'My full day of eating for muscle gain — 3500 calories 🍗🥦 #mealprep',
+    tags: ['IFBB Pro', 'meal prep', 'supplements', 'natural bodybuilding'],
   },
   {
     name: 'HealthyLiving_Maya',
@@ -107,10 +134,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Bangalore, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=HealthyMaya&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/healthyliving',
     followerCount: 200000,
-    engagementRate: 5.9
+    engagementRate: 5.9,
+    bio: 'Holistic health advocate. Plant-based recipes, mental health awareness, and self-care rituals. Because wellness is more than just the gym 🌿',
+    reelCaption: 'My nighttime self-care routine for better sleep 🌙 #selfcare #wellness',
+    tags: ['plant-based', 'mental health', 'self-care', 'holistic wellness'],
   },
 
   // Food & Cooking
@@ -120,10 +150,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Delhi, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=ChefSanjeev&backgroundColor=ffdfbf',
     socialLink: 'https://youtube.com/chefsanjeev',
     followerCount: 890000,
-    engagementRate: 6.1
+    engagementRate: 6.1,
+    bio: 'Professional chef with 15 years experience. Simplifying gourmet cooking for home kitchens. Indian cuisine, fusion recipes, and plating masterclass! 👨‍🍳',
+    reelCaption: 'Making butter chicken from scratch in 30 mins 🍛 This will change your life!',
+    tags: ['professional chef', 'Indian cuisine', 'gourmet', 'cooking class'],
   },
   {
     name: 'RecipesBy_Neha',
@@ -131,10 +164,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'tiktok'],
     location: 'Mumbai, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=RecipesNeha&backgroundColor=ffd5dc',
     socialLink: 'https://youtube.com/recipesbyneha',
     followerCount: 1200000,
-    engagementRate: 5.7
+    engagementRate: 5.7,
+    bio: 'Home cooking made easy! 1000+ tested recipes for Indian families. Quick weeknight dinners, party platters, and festival specials 🍳',
+    reelCaption: '1-min samosa recipe that went VIRAL 🥟 10M views on YouTube!',
+    tags: ['home cooking', 'Indian recipes', 'quick meals', 'family recipes'],
   },
   {
     name: 'FoodieAdventures',
@@ -142,10 +178,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Goa, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=FoodieAdv&backgroundColor=ffdfbf',
     socialLink: 'https://instagram.com/foodieadventures',
     followerCount: 380000,
-    engagementRate: 5.4
+    engagementRate: 5.4,
+    bio: 'Street food explorer & restaurant reviewer. Traveling India one plate at a time. Honest reviews, hidden gems, and the best local eats! 🍽️',
+    reelCaption: 'Found the BEST street food in Old Delhi 😍 ₹50 thali challenge!',
+    tags: ['street food', 'restaurant reviews', 'food vlog', 'hidden gems'],
   },
   {
     name: 'BakingWithLove',
@@ -153,23 +192,29 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Pune, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=BakingLove&backgroundColor=ffd5dc',
     socialLink: 'https://youtube.com/bakingwithlove',
     followerCount: 560000,
-    engagementRate: 6.3
+    engagementRate: 6.3,
+    bio: 'Pastry chef & baking instructor. From beginner-friendly cookies to advanced cake decorating. Let\'s make something sweet together! 🎂',
+    reelCaption: 'The most satisfying cake decorating you\'ll see today 🎂✨ #baking #cake',
+    tags: ['baking', 'cake decorating', 'pastry chef', 'desserts'],
   },
 
-  // Tech & Gaming
+  // Dance, Tech & Gaming
   {
     name: 'DanceWithRio',
     niche: 'dance',
     platforms: ['instagram', 'youtube'],
     location: 'Delhi, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=DanceRio&backgroundColor=c0aede',
     socialLink: 'https://youtube.com/dancewitrio',
     followerCount: 180000,
-    engagementRate: 5.1
+    engagementRate: 5.1,
+    bio: 'Professional dancer & choreographer. Bollywood, hip-hop, and contemporary dance. Teaching you viral choreographies step by step! 💃🕺',
+    reelCaption: 'New Bollywood choreo alert 🔥💃 Learn this in 3 steps! #dance #bollywood',
+    tags: ['choreography', 'Bollywood', 'hip-hop', 'dance tutorials'],
   },
   {
     name: 'TechReviews_Nikhil',
@@ -177,21 +222,27 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Bangalore, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=TechNikhil&backgroundColor=d1d4f9',
     socialLink: 'https://youtube.com/techreviews',
     followerCount: 720000,
-    engagementRate: 5.8
+    engagementRate: 5.8,
+    bio: 'India\'s most trusted tech reviewer. Unbiased smartphone, laptop & gadget reviews. Helping you make smart buying decisions since 2018 📱💻',
+    reelCaption: 'iPhone vs Samsung — the REAL camera test nobody talks about 📸 #tech',
+    tags: ['tech reviews', 'smartphones', 'gadgets', 'unboxing'],
   },
   {
     name: 'Gaming_Guru_Rohan',
     niche: 'gaming',
-    platforms: ['twitch', 'youtube'],
+    platforms: ['youtube', 'instagram'],
     location: 'Mumbai, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=GamingRohan&backgroundColor=d1d4f9',
     socialLink: 'https://youtube.com/gamingguru',
     followerCount: 640000,
-    engagementRate: 6.0
+    engagementRate: 6.0,
+    bio: 'Pro esports player turned content creator. BGMI, Valorant, and GTA V streams. Gaming tips, funny moments, and competitive highlights! 🎮',
+    reelCaption: 'This Valorant clutch had my team SCREAMING 🎯🔥 #gaming #valorant',
+    tags: ['esports', 'Valorant', 'BGMI', 'gaming highlights'],
   },
   {
     name: 'Gadget_Girl_Priya',
@@ -199,10 +250,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Hyderabad, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=GadgetPriya&backgroundColor=b6e3f4',
     socialLink: 'https://youtube.com/gadgetgirl',
     followerCount: 420000,
-    engagementRate: 5.5
+    engagementRate: 5.5,
+    bio: 'Breaking down complex tech for everyone. Smart home setups, productivity gadgets, and women in tech advocacy. Tech should be for ALL! 👩‍💻',
+    reelCaption: 'My ₹50K smart home setup tour 🏠 Everything is voice controlled!',
+    tags: ['smart home', 'productivity', 'women in tech', 'gadgets'],
   },
 
   // Travel & Lifestyle
@@ -212,10 +266,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Delhi, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=TravelAksh&backgroundColor=b6e3f4',
     socialLink: 'https://instagram.com/travelwithaksh',
     followerCount: 950000,
-    engagementRate: 5.2
+    engagementRate: 5.2,
+    bio: 'Full-time traveler. 30+ countries, 200+ cities. Budget travel guides, hidden destinations, and travel hacks. The world is too big to stay in one place! 🌍',
+    reelCaption: 'Ladakh on ₹500/day — is it even possible? 🏔️ Full budget breakdown!',
+    tags: ['budget travel', 'adventure', 'travel hacks', 'world tour'],
   },
   {
     name: 'WanderlustDiaries',
@@ -223,10 +280,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Goa, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=Wanderlust&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/wanderlustdiaries',
     followerCount: 680000,
-    engagementRate: 5.9
+    engagementRate: 5.9,
+    bio: 'Solo female traveler exploring India & beyond. Luxury & budget stays, hidden cafes, and the most photogenic spots. Travel is the only thing money well spent! ✈️',
+    reelCaption: 'This hidden beach in Goa has ZERO tourists 🏖️ Saving this for later!',
+    tags: ['solo travel', 'hidden gems', 'luxury stays', 'photo spots'],
   },
   {
     name: 'LifestyleWith_Avi',
@@ -234,10 +294,13 @@ const defaultInfluencers = [
     platforms: ['instagram'],
     location: 'Mumbai, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=LifestyleAvi&backgroundColor=ffdfbf',
     socialLink: 'https://instagram.com/lifestyleavi',
     followerCount: 520000,
-    engagementRate: 4.8
+    engagementRate: 4.8,
+    bio: 'Living the good life in Mumbai. Men\'s grooming, luxury watches, cars, and lifestyle tips. Elevate your everyday with curated recommendations.',
+    reelCaption: 'Morning routine of a Mumbai entrepreneur ☀️ 5AM club hits different!',
+    tags: ['men\'s lifestyle', 'grooming', 'luxury', 'entrepreneur'],
   },
   {
     name: 'HomeDecor_Shreya',
@@ -245,10 +308,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Bangalore, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=DecorShreya&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/homedecorshreya',
     followerCount: 380000,
-    engagementRate: 5.6
+    engagementRate: 5.6,
+    bio: 'Interior designer turned content creator. Budget-friendly home makeovers, DIY decor, and aesthetic room tours. Your space should tell your story! 🏡',
+    reelCaption: 'Transforming my boring room with ₹3000 budget 🎨 What a glow up!',
+    tags: ['interior design', 'DIY decor', 'room makeover', 'aesthetic'],
   },
 
   // Entertainment & Music
@@ -258,10 +324,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Lucknow, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=SingerSaif&backgroundColor=c0aede',
     socialLink: 'https://youtube.com/singersaif',
     followerCount: 1100000,
-    engagementRate: 6.2
+    engagementRate: 6.2,
+    bio: 'Singer-songwriter & music producer. Originals, Bollywood covers, and mashups. Music is the universal language — let it speak! 🎵🎤',
+    reelCaption: 'Singing to strangers in public — their reactions are PRICELESS 🎤😱',
+    tags: ['singer', 'original music', 'Bollywood covers', 'mashups'],
   },
   {
     name: 'ComedyWith_Kranti',
@@ -269,10 +338,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'tiktok'],
     location: 'Pune, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=ComedyKranti&backgroundColor=ffdfbf',
     socialLink: 'https://youtube.com/comedykranti',
     followerCount: 890000,
-    engagementRate: 6.4
+    engagementRate: 6.4,
+    bio: 'Stand-up comedian & sketch artist. Daily relatable comedy about Indian life, college, and corporate culture. If you don\'t laugh, I owe you a samosa! 😂',
+    reelCaption: 'When your mom finds your Amazon order 📦😂 Tag someone who relates!',
+    tags: ['stand-up comedy', 'sketches', 'relatable humor', 'Indian comedy'],
   },
   {
     name: 'ActressRashi',
@@ -280,10 +352,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Mumbai, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=ActressRashi&backgroundColor=ffd5dc',
     socialLink: 'https://instagram.com/actressrashi',
     followerCount: 750000,
-    engagementRate: 5.3
+    engagementRate: 5.3,
+    bio: 'Actress & content creator. Behind-the-scenes of Bollywood, acting tips, and day-in-my-life vlogs. Living the dream one take at a time! 🎬',
+    reelCaption: 'A day in the life of a Bollywood actress 🎬 BTS of my latest shoot!',
+    tags: ['Bollywood', 'acting', 'BTS', 'day in my life'],
   },
 
   // Education & Learning
@@ -293,10 +368,13 @@ const defaultInfluencers = [
     platforms: ['youtube'],
     location: 'Delhi, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=EduDev&backgroundColor=d1d4f9',
     socialLink: 'https://youtube.com/educationhub',
     followerCount: 2100000,
-    engagementRate: 5.9
+    engagementRate: 5.9,
+    bio: 'IIT graduate making education free & accessible. Physics, Math, and JEE/NEET prep. 500+ free video lessons and counting! 📚🎯',
+    reelCaption: 'This math trick will blow your mind 🤯 Works every single time! #education',
+    tags: ['IIT', 'JEE prep', 'free education', 'math tricks'],
   },
   {
     name: 'LanguageLearning_Isha',
@@ -304,10 +382,13 @@ const defaultInfluencers = [
     platforms: ['youtube', 'instagram'],
     location: 'Bangalore, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=LangIsha&backgroundColor=b6e3f4',
     socialLink: 'https://youtube.com/languagelearning',
     followerCount: 680000,
-    engagementRate: 6.1
+    engagementRate: 6.1,
+    bio: 'Polyglot speaking 6 languages! Learn English, Japanese, Korean, and French with fun methods. Language opens doors to new worlds! 🌐📖',
+    reelCaption: 'Learn 10 Japanese phrases in 60 seconds 🇯🇵 #language #japanese',
+    tags: ['polyglot', 'language learning', 'Japanese', 'English tips'],
   },
 
   // Sustainability & Environment
@@ -317,10 +398,13 @@ const defaultInfluencers = [
     platforms: ['instagram', 'youtube'],
     location: 'Kerala, India',
     gender: 'male',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=EcoAnand&backgroundColor=b6e3f4',
     socialLink: 'https://instagram.com/ecowarrior',
     followerCount: 420000,
-    engagementRate: 5.7
+    engagementRate: 5.7,
+    bio: 'Environmental activist & zero-waste advocate. Sustainable living tips, eco-friendly product reviews, and climate change awareness. Every small change counts! 🌱♻️',
+    reelCaption: 'I went zero-waste for 30 days — here\'s what happened 🌱 #sustainability',
+    tags: ['zero waste', 'eco-friendly', 'climate change', 'sustainable living'],
   },
   {
     name: 'GreenLiving_Pooja',
@@ -328,11 +412,14 @@ const defaultInfluencers = [
     platforms: ['instagram', 'tiktok'],
     location: 'Gurgaon, India',
     gender: 'female',
-    imageUrl: '',
+    imageUrl: 'https://api.dicebear.com/9.x/avataaars/svg?seed=GreenPooja&backgroundColor=b6e3f4',
     socialLink: 'https://instagram.com/greenliving',
     followerCount: 560000,
-    engagementRate: 5.8
-  }
+    engagementRate: 5.8,
+    bio: 'Making sustainability trendy! Thrift hauls, DIY upcycling, organic skincare, and plant-based recipes. Saving the planet one post at a time 🌍💚',
+    reelCaption: 'Thrift flip challenge: ₹500 outfit that looks designer 👗♻️ #thrift',
+    tags: ['thrift fashion', 'upcycling', 'organic', 'plant-based'],
+  },
 ];
 
 export default defaultInfluencers;

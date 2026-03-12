@@ -16,9 +16,9 @@ function ChatBotPage() {
   const textareaRef = useRef(null);
 
   const exampleRequests = [
-    'I want to promote a new fitness app — $5 000 budget, high-engagement Instagram & TikTok influencers in the US, health & wellness niche.',
-    'Looking for sustainable fashion brand advocates. Budget ~$2 000, micro-influencers with great engagement, any platform.',
-    'Tech product launch on YouTube and Instagram. Budget $10 000, 3-5 influencers in tech & gaming niches, high follower counts.',
+    'I want to promote a new fitness app — ₹5,000 budget, high-engagement Instagram & TikTok influencers in India, health & wellness niche.',
+    'Looking for sustainable fashion brand advocates. Budget ~₹2,000, micro-influencers with great engagement, any platform.',
+    'Tech product launch on YouTube and Instagram. Budget ₹10,000, 3-5 influencers in tech & gaming niches, high follower counts.',
   ];
 
   // Auto-scroll to bottom when messages change

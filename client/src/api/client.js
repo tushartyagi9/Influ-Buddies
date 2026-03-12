@@ -132,3 +132,12 @@ export function sendMessage(receiverId, content) {
   });
 }
 
+// ── Influencer Profile ──
+
+export function updateInfluencer(id, payload) {
+  return request(`/api/influencers/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  });
+}
+

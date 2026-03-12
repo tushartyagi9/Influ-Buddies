@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, Link } from 'react-router-dom';
 import { fetchConversations, fetchMessages, sendMessage } from '../api/client.js';
 import { useAuth } from '../context/AuthContext.jsx';
 import './MessagesPage.css';
@@ -27,10 +27,16 @@ export default function MessagesPage() {
   useEffect(() => {
     const to = searchParams.get('to');
     if (to && !activePartner) {
-      setActivePartner({ partnerId: to, partner: { name: 'User' } });
+      // Try to find partner info from loaded conversations
+      const existing = conversations.find(c => c.partnerId === to || c.partnerId?.toString() === to);
+      if (existing) {
+        setActivePartner(existing);
+      } else {
+        setActivePartner({ partnerId: to, partner: { name: 'User' } });
+      }
       loadMessages(to);
     }
-  }, [searchParams]);
+  }, [searchParams, conversations]);
 
   function loadMessages(partnerId) {
     setLoadingMsgs(true);
@@ -118,6 +124,12 @@ export default function MessagesPage() {
                 {activePartner.partner?.name?.[0]?.toUpperCase() || '?'}
               </div>
               <span className="chat-header-name">{activePartner.partner?.name || 'User'}</span>
+              {activePartner.influencerProfileId && (
+                <Link to={`/influencers/${activePartner.influencerProfileId}`} className="chat-header-profile-link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  View Profile
+                </Link>
+              )}
             </div>
 
             <div className="chat-messages">

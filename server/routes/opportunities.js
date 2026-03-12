@@ -204,6 +204,11 @@ router.put('/:oppId/applications/:appId', authMiddleware, async (req, res) => {
     const app = await Application.findById(req.params.appId);
     if (!app) return res.status(404).json({ message: 'Application not found' });
 
+    const validStatuses = ['pending', 'accepted', 'rejected'];
+    if (!validStatuses.includes(req.body.status)) {
+      return res.status(400).json({ message: 'Invalid status' });
+    }
+
     app.status = req.body.status;
     await app.save();
     res.json(app);

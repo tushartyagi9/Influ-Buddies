@@ -86,7 +86,11 @@ router.put('/:id', authMiddleware, async (req, res) => {
       return res.status(403).json({ message: 'Not allowed to update this profile' });
     }
 
-    Object.assign(influencer, req.body);
+    const allowed = ['name', 'niche', 'bio', 'location', 'socialLink', 'platforms',
+      'followerCount', 'engagementRate', 'imageUrl', 'tags', 'reelCaption', 'gender'];
+    for (const key of allowed) {
+      if (req.body[key] !== undefined) influencer[key] = req.body[key];
+    }
     await influencer.save();
     res.json(influencer);
   } catch (err) {

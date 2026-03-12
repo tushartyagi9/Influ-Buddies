@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import { authMiddleware } from '../middleware/auth.js';
 import Message from '../models/Message.js';
 import User from '../models/User.js';
+import Influencer from '../models/Influencer.js';
 
 const router = express.Router();
 
@@ -48,9 +49,14 @@ router.get('/conversations', async (req, res) => {
     const users = await User.find({ _id: { $in: partnerIds } }).select('name role').lean();
     const userMap = Object.fromEntries(users.map((u) => [u._id.toString(), u]));
 
+    // Find influencer profiles for partners who are influencers
+    const influencerProfiles = await Influencer.find({ owner: { $in: partnerIds } }).select('_id owner').lean();
+    const influencerMap = Object.fromEntries(influencerProfiles.map((ip) => [ip.owner.toString(), ip._id.toString()]));
+
     conversations = conversations.map((c) => ({
       ...c,
       partner: userMap[c.partnerId.toString()] || { name: 'Unknown' },
+      influencerProfileId: influencerMap[c.partnerId.toString()] || null,
     }));
 
     res.json(conversations);

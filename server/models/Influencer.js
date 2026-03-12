@@ -11,6 +11,9 @@ const influencerSchema = new mongoose.Schema(
     socialLink: { type: String },
     followerCount: { type: Number },
     engagementRate: { type: Number },
+    bio: { type: String },
+    reelCaption: { type: String },
+    tags: [{ type: String }],
     owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
   },
   { timestamps: true }

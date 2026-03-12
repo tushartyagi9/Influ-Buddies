@@ -97,16 +97,16 @@ export function parseKeywords(text) {
   // Default: if user mentions "social media" generically or nothing
   if (!platforms.length) platforms.push('instagram');
 
-  // --- Budget – try to find exact dollar amount first ---
+  // --- Budget – try to find exact amount first ---
   let budget = 'not specified';
   let budgetNumeric = null;
-  const dollarMatch = text.match(/\$\s?([\d,]+(?:\.\d+)?)\s*(?:k|K)?/);
-  const numberKMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:k|K)\s*(?:budget|dollar|usd)?/i);
-  const plainNumberBudget = text.match(/budget\s*(?:of|around|is|:)?\s*\$?\s*([\d,]+)/i);
+  const currencyMatch = text.match(/[₹$]\s?([\d,]+(?:\.\d+)?)\s*(?:k|K)?/);
+  const numberKMatch = text.match(/(\d+(?:\.\d+)?)\s*(?:k|K)\s*(?:budget|dollar|usd|rupee|inr)?/i);
+  const plainNumberBudget = text.match(/budget\s*(?:of|around|is|:)?\s*[₹$]?\s*([\d,]+)/i);
 
-  if (dollarMatch) {
-    let val = parseFloat(dollarMatch[1].replace(/,/g, ''));
-    if (/k|K/.test(dollarMatch[0])) val *= 1000;
+  if (currencyMatch) {
+    let val = parseFloat(currencyMatch[1].replace(/,/g, ''));
+    if (/k|K/.test(currencyMatch[0])) val *= 1000;
     budgetNumeric = val;
   } else if (numberKMatch) {
     budgetNumeric = parseFloat(numberKMatch[1]) * 1000;
@@ -115,15 +115,15 @@ export function parseKeywords(text) {
   }
 
   if (budgetNumeric !== null) {
-    budget = `$${budgetNumeric.toLocaleString()}`;
+    budget = `₹${budgetNumeric.toLocaleString()}`;
   } else if (/high.*budget|large.*budget|big.*budget|substantial|significant|premium/i.test(lower)) {
-    budget = '$5,000+';
+    budget = '₹5,000+';
     budgetNumeric = 5000;
   } else if (/medium.*budget|moderate|reasonable/i.test(lower)) {
-    budget = '$1,000–5,000';
+    budget = '₹1,000–5,000';
     budgetNumeric = 3000;
   } else if (/low.*budget|small.*budget|tight.*budget|limited|cheap|affordable/i.test(lower)) {
-    budget = '$500–1,000';
+    budget = '₹500–1,000';
     budgetNumeric = 750;
   }
 

@@ -46,7 +46,7 @@ export default function BrowseInfluencersPage() {
     <section className="browse-page">
       <h2>Browse influencers</h2>
       <div className="category-chips">
-        {['all', 'beauty', 'dance', 'fashion'].map((cat) => (
+        {['all', 'beauty', 'fashion', 'fitness', 'food', 'travel', 'tech', 'gaming', 'dance', 'comedy', 'music', 'education', 'lifestyle'].map((cat) => (
           <button
             key={cat}
             type="button"
@@ -73,6 +73,25 @@ export default function BrowseInfluencersPage() {
         ))}
       </div>
       {!loading && !data.items.length && <p>No influencers found. Try adjusting your filters.</p>}
+      {data.pages > 1 && (
+        <div className="pagination">
+          <button
+            className="pagination-btn"
+            disabled={data.page <= 1}
+            onClick={() => setSearchParams(prev => { const p = Object.fromEntries(prev.entries()); p.page = data.page - 1; return p; })}
+          >
+            ← Previous
+          </button>
+          <span className="pagination-info">Page {data.page} of {data.pages}</span>
+          <button
+            className="pagination-btn"
+            disabled={data.page >= data.pages}
+            onClick={() => setSearchParams(prev => { const p = Object.fromEntries(prev.entries()); p.page = data.page + 1; return p; })}
+          >
+            Next →
+          </button>
+        </div>
+      )}
     </section>
   );
 }

@@ -96,9 +96,7 @@ export default function LoginPage() {
               />
             </label>
 
-            <div className="auth-forgot-password">
-              <Link to="/forgot-password">Forgot password?</Link>
-            </div>
+
 
             {error && <p className="error-message">{error}</p>}
 

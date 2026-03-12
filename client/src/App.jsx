@@ -11,6 +11,7 @@ import InfluencerDashboardPage from './pages/InfluencerDashboardPage.jsx';
 import ChatBotPage from './pages/ChatBotPage.jsx';
 import ReelsPage from './pages/ReelsPage.jsx';
 import MessagesPage from './pages/MessagesPage.jsx';
+import NotFoundPage from './pages/NotFoundPage.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
 import './App.css';
 
@@ -57,6 +58,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
