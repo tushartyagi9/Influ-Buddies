@@ -84,6 +84,7 @@ router.post('/', authMiddleware, async (req, res) => {
 
     const opp = await Opportunity.create({
       ...req.body,
+      category: req.body.category || 'general',
       brand: req.user._id,
       brandName: req.user.name,
     });

@@ -9,7 +9,7 @@ import SignupPage from './pages/SignupPage.jsx';
 import BrandDashboardPage from './pages/BrandDashboardPage.jsx';
 import InfluencerDashboardPage from './pages/InfluencerDashboardPage.jsx';
 import ChatBotPage from './pages/ChatBotPage.jsx';
-import ReelsPage from './pages/ReelsPage.jsx';
+import NotificationsPage from './pages/NotificationsPage.jsx';
 import MessagesPage from './pages/MessagesPage.jsx';
 import NotFoundPage from './pages/NotFoundPage.jsx';
 import RequireAuth from './components/RequireAuth.jsx';
@@ -23,7 +23,14 @@ function App() {
         <Route path="browse" element={<BrowseInfluencersPage />} />
         <Route path="influencers/:id" element={<InfluencerDetailPage />} />
         <Route path="opportunities" element={<OpportunitiesPage />} />
-        <Route path="reels" element={<ReelsPage />} />
+        <Route
+          path="notifications"
+          element={
+            <RequireAuth>
+              <NotificationsPage />
+            </RequireAuth>
+          }
+        />
         <Route path="login" element={<LoginPage />} />
         <Route path="signup" element={<SignupPage />} />
         <Route

@@ -235,10 +235,7 @@ export default function InfluencerDashboardPage() {
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                 <span>Messages</span>
               </Link>
-              <Link to="/reels" className="quick-action-card">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="2" width="20" height="20" rx="5"/><line x1="2" y1="8" x2="22" y2="8"/><polygon points="10 12 10 18 16 15 10 12"/></svg>
-                <span>View Reels</span>
-              </Link>
+              {/* Reels removed */}
               <button className="quick-action-card" onClick={() => setTab('profile')}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
                 <span>My Profile</span>

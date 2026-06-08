@@ -6,7 +6,7 @@ const opportunitySchema = new mongoose.Schema(
     description: { type: String, required: true },
     brand: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     brandName: { type: String, required: true },
-    category: { type: String, required: true },
+    category: { type: String, default: 'general' },
     platforms: [{ type: String }],
     budget: { type: Number },
     budgetMin: { type: Number },

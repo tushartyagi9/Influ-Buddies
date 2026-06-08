@@ -6,7 +6,7 @@ import { useAuth } from '../context/AuthContext.jsx';
 import InfluencerCard from '../components/InfluencerCard.jsx';
 import './DashboardPages.css';
 
-const CATEGORIES = ['beauty','fashion','fitness','wellness','food','travel','tech','gaming','entertainment','music','education','lifestyle','sustainability'];
+const CATEGORIES = ['general','beauty','fashion','fitness','wellness','food','travel','tech','gaming','entertainment','music','education','lifestyle','sustainability'];
 const PLATFORMS = ['instagram','youtube','tiktok','twitter','linkedin'];
 
 export default function BrandDashboardPage() {
@@ -51,6 +51,7 @@ export default function BrandDashboardPage() {
     try {
       await createOpportunity({
         ...adForm,
+        category: adForm.category || 'general',
         budget: adForm.budget ? Number(adForm.budget) : undefined,
       });
       setAdSuccess('Ad created successfully!');
@@ -120,6 +121,10 @@ export default function BrandDashboardPage() {
         <button className={`dash-tab${tab === 'saved' ? ' active' : ''}`} onClick={() => setTab('saved')}>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
           Saved
+        </button>
+        <button className={`dash-tab${tab === 'profile' ? ' active' : ''}`} onClick={() => setTab('profile')}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
         </button>
       </div>
 
@@ -235,8 +240,8 @@ export default function BrandDashboardPage() {
             <div className="form-group">
               <label>Category</label>
               <select name="category" value={adForm.category} onChange={handleAdChange}>
-                <option value="">Any</option>
-                {CATEGORIES.map((c) => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
+                <option value="general">General</option>
+                {CATEGORIES.filter((c) => c !== 'general').map((c) => <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
               </select>
             </div>
             <div className="form-group">
@@ -381,6 +386,62 @@ export default function BrandDashboardPage() {
             ))}
           </div>
         )
+      )}
+
+      {tab === 'profile' && (
+        <div className="profile-card-enhanced">
+          <div className="profile-cover">
+            <div className="profile-avatar-lg">
+              <span>{user?.name?.[0]?.toUpperCase()}</span>
+            </div>
+          </div>
+          <div className="profile-body">
+            <h3 className="profile-name">{user?.name || 'Brand'}</h3>
+            <p className="profile-email">{user?.email}</p>
+            <span className="profile-role">{user?.role}</span>
+            {(user?.location || user?.bio) && (
+              <>
+                {user?.location && (
+                  <p className="profile-location">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    {user.location}
+                  </p>
+                )}
+                {user?.bio && <p className="profile-bio">{user.bio}</p>}
+              </>
+            )}
+
+            <div className="profile-stats-row">
+              <div className="profile-stat">
+                <span className="profile-stat-val">{myAds.length}</span>
+                <span className="profile-stat-label">Campaigns</span>
+              </div>
+              <div className="profile-stat">
+                <span className="profile-stat-val">{activeAds}</span>
+                <span className="profile-stat-label">Active</span>
+              </div>
+              <div className="profile-stat">
+                <span className="profile-stat-val">{totalApplicants}</span>
+                <span className="profile-stat-label">Applicants</span>
+              </div>
+              <div className="profile-stat">
+                <span className="profile-stat-val">{favorites.length}</span>
+                <span className="profile-stat-label">Saved</span>
+              </div>
+            </div>
+
+            <div className="profile-platforms">
+              <span className="dash-chip platform">Brand Account</span>
+              <span className="dash-chip platform">Campaign Management</span>
+              <span className="dash-chip platform">Creator Outreach</span>
+            </div>
+
+            <div style={{marginTop: '1.25rem', display: 'flex', gap: '0.75rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+              <Link to="/browse" className="dash-action-btn view-profile">Browse Creators</Link>
+              <Link to="/messages" className="dash-action-btn message-btn">Open Messages</Link>
+            </div>
+          </div>
+        </div>
       )}
     </section>
   );
